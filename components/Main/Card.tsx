@@ -32,7 +32,7 @@ export function Card({ title, value, currency }: ICard): ReactElement {
             {currency}
           </span>
         </div>
-        <TagName className="w-6 h-6 text-purple-light" />
+        <TagName className="w-6 h-6 text-purple-light items-center" />
       </div>
     </div>
   );

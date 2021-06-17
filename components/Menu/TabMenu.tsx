@@ -1,12 +1,52 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
+
+type Props = {
+  title: string;
+  children?: JSX.Element;
+  active?: boolean;
+};
+const TabItem = ({ title, children, active }: Props) => (
+  <div className="flex">
+    <h1
+      className={`py-5 ml-5 uppercase text-xs font-semibold pb-4
+      ${
+        active
+          ? `text-blue-primary border-b-4 border-blue-primary z-2`
+          : `text-purple-light`
+      } 
+      hover:text-blue-primary cursor-pointer`}
+    >
+      {title}
+      {children}
+    </h1>
+  </div>
+);
+
+const Line = () => {
+  return (
+    <div className="absolute w-full h-0.5 bg-opacity-40 bg-purple-light mt-14 z-1 mr-4"></div>
+  );
+};
 
 export function TabMenu(): ReactElement {
+  const active = true;
+
   return (
-    <div className="flex">
-      <span>Transactions</span>
-      <span>My Tickets</span>
-      <span>Referral Program</span>
-      <span>Operator Panel</span>
+    <div className="flex items-start w-full relative">
+      <Line />
+      <TabItem title="Transactions" />
+      <TabItem active title="My Tickets">
+        <span
+          className={`text-white ml-2 px-2 self-center rounded-full ${
+            active ? `bg-blue-primary` : `bg-purple-light`
+          }
+          hover:cursor-pointer`}
+        >
+          4
+        </span>
+      </TabItem>
+      <TabItem title="Referral Program" />
+      <TabItem title="Operator Panel" />
     </div>
   );
 }
