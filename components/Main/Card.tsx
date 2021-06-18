@@ -1,11 +1,11 @@
 import React, { ReactElement, FC } from "react";
-import { FaMoneyBillAlt, FaEthereum } from "react-icons/fa";
+import { FaMoneyBillAlt } from "react-icons/fa";
 import { IoTicketSharp } from "react-icons/io5";
 
 interface ICard {
   title: string;
   value: string;
-  currency: string;
+  currency?: string;
 }
 
 export function Card({ title, value, currency }: ICard): ReactElement {

@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { TabMenu } from "../Menu/TabMenu";
+import { Tickets } from "../Board/Tickets";
 
 export function Board(): ReactElement {
   return (
@@ -13,6 +14,7 @@ export function Board(): ReactElement {
           <span>Blocks left to play</span>
         </div>
       </div>
+      <Tickets />
     </div>
   );
 }
