@@ -18,6 +18,13 @@ export function OpenRaffles() {
         col4: "0 $ada	",
         col5: "15",
       },
+      {
+        col1: "5",
+        col2: "276",
+        col3: "20 $ada",
+        col4: "0 $ada	",
+        col5: "45",
+      },
     ],
     []
   );

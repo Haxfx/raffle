@@ -33,9 +33,9 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
     <div onClick={() => setToggleShow(!toggleShow)} {...restProps}>
       {children}
       {toggleShow ? (
-        <VscChevronUp className="text-orange-primary h-6 w-6" />
+        <VscChevronUp className="text-orange-primary h-6 w-6 mr-5" />
       ) : (
-        <VscChevronDown className="text-blue-primary h-6 w-6" />
+        <VscChevronDown className="text-blue-primary h-6 w-6 mr-5" />
       )}
     </div>
   );
