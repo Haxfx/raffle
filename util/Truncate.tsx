@@ -1,5 +1,15 @@
 import ShowMoreText from "react-show-more-text";
 
+interface ITruncate {
+  lineCount: string;
+  moreText: boolean;
+  lessText: boolean;
+  additionalClasses: string;
+  width: string;
+  callback: () => void;
+  children: any;
+}
+
 export const Truncate = ({
   lineCount,
   moreText,
@@ -8,7 +18,7 @@ export const Truncate = ({
   width,
   callback,
   children,
-}) => {
+}: ITruncate) => {
   return (
     <ShowMoreText
       /* Default options */

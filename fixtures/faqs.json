@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "header": "How can I join a raffle?",
+    "body": "Joining a raffle is extremely simple. First and foremost you need to be an EASY1 Stake Pool delegator, then all you need to do is to copy a receiving address from your favourite Cardano $ada wallet and paste it in the Join a raffle field above and press Join. You can find a receiving address in both Yoroi and Daedalus in the Receive panel."
+  },
+  {
+    "id": 2,
+    "header": "Can I reuse the same Payment Address for multiple raffles?",
+    "body": "Joining a raffle is extremely simple. First and foremost you need to be an EASY1 Stake Pool delegator, then all you need to do is to copy a receiving address from your favourite Cardano $ada wallet and paste it in the Join a raffle field above and press Join. You can find a receiving address in both Yoroi and Daedalus in the Receive panel."
+  },
+  {
+    "id": 3,
+    "header": "There are multiple raffles open, how do I join them all?",
+    "body": "By default, when you enter a valid payment address, you automatically join all the raffles that are eligible for your staking address and amount staked."
+  },
+  {
+    "id": 4,
+    "header": "Which raffles can I join?",
+    "body": "There can be multiple raffles open at the same time. Some will have no minimum stake required to participates, others, usually with a larger prize, will require a minimum staked amount. You can check the Open Raffles table above in the Min Stake Required column to find which raffles you can participate to."
+  },
+  {
+    "id": 5,
+    "header": "How are the winners selected?",
+    "body": "At about the end of the third day of the epoch, a random participant of a raffle gets automatically selected."
+  },
+  {
+    "id": 6,
+    "header": "How is the payment made?",
+    "body": "The EASY1 Stake Pool Raffle website is still under development and improvement. While creation, validation, and winners selection happen automatically, for safety reason payment are still executed manually. You can expect $ada payments being performed within 24h from the selection of the winner. Soon this will be automated."
+  }
+]

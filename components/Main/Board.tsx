@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 
 import { TabMenu } from "../Menu/TabMenu";
 import { Epoch, Tickets } from "../Board";
+import { OpenRaffles } from "../Board/OpenRaffles";
 
 export function Board(): ReactElement {
   return (
@@ -9,10 +10,7 @@ export function Board(): ReactElement {
       <TabMenu />
       <Epoch />
       <Tickets />
-      <div className="p-5">
-        <span>Open Raffles</span>
-        <div></div>
-      </div>
+      <OpenRaffles />
     </div>
   );
 }

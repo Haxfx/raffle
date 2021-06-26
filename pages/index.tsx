@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { HamburgerMenu as Hamburger } from "../components/Menu/Hamburger";
 import { Account } from "../components/Main/Account";
-import { Card, Board } from "./../components/Main";
+import { Card, Board, Faq } from "./../components/Main";
 import { useMotion } from "../util/useMotion";
 import { Footer } from "./../components/Main/Footer";
 
@@ -42,6 +42,9 @@ const Index = () => {
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4">
               <Board />
+            </motion.div>
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4">
+              <Faq />
             </motion.div>
           </motion.div>
         </div>

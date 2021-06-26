@@ -13,8 +13,10 @@ export function Epoch() {
         <GrStackOverflow className="h-6 w-6" />
         <span className="mx-2">Epoch</span>
         <div className="flex">
-          {epochArray.map((char) => (
-            <div className="bg-purple-primary px-2 py-1 ml-2">{char}</div>
+          {epochArray.map((char, id) => (
+            <div key={id} className="bg-blue-primary px-2 py-1 ml-2">
+              {char}
+            </div>
           ))}
         </div>
       </div>
