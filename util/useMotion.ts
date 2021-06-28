@@ -1,6 +1,6 @@
 export function useMotion() {
   // Our custom easing
-  let easing = [0.6, -0.05, 0.01, 0.99];
+  const easing = [0.6, -0.05, 0.01, 0.99];
 
   // animate: defines animation
   // initial: defines initial state of animation or stating point.

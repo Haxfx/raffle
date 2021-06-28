@@ -1,7 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
