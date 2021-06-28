@@ -3,7 +3,15 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   darkMode: false, // or 'media' or 'class'
-  purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  purge: {
+    enabled: false,
+    content: [
+      // Uncomment when pushing to production
+      './components/**/*.{js,ts,jsx,tsx}',
+      './components/**/**/*.{js,ts,jsx,tsx}',
+      './pages/*.tsx',
+    ],
+  },
   theme: {
     pseudo: {
       // defaults to {'before': 'before', 'after': 'after'}
