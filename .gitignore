@@ -13,8 +13,8 @@
 /out/
 
 # production
-/build
-tailwind.config.js
+#/build
+#tailwind.config.js
 
 # misc
 .DS_Store
