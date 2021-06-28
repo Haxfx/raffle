@@ -4,7 +4,7 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   purge: {
-    enabled: false,
+    enabled: true,
     content: [
       // Uncomment when pushing to production
       './components/**/*.tsx',
