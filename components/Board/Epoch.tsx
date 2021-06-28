@@ -1,10 +1,9 @@
-import React from "react";
-import { GrStackOverflow } from "react-icons/gr";
+import { GrStackOverflow } from 'react-icons/gr';
 
 export function Epoch() {
-  const currentEpoch: number = 272;
+  const currentEpoch = 272;
 
-  const epochArray = currentEpoch.toString().split("");
+  const epochArray = currentEpoch.toString().split('');
 
   return (
     <div className="flex justify-between px-5 pt-5 text-white">

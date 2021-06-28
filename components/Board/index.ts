@@ -1,2 +1,2 @@
-export * from "./Epoch";
-export * from "./Tickets";
+export * from './Epoch';
+export * from './Tickets';

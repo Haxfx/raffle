@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import { TabMenu } from "../Menu/TabMenu";
-import { Epoch, Tickets } from "../Board";
-import { OpenRaffles } from "../Board/OpenRaffles";
+import { TabMenu } from '../Menu/TabMenu';
+import { Epoch, Tickets } from '../Board';
+import { OpenRaffles } from '../Board/OpenRaffles';
 
 export function Board(): ReactElement {
   return (
@@ -10,6 +10,7 @@ export function Board(): ReactElement {
       <TabMenu />
       <Epoch />
       <Tickets />
+
       <OpenRaffles />
     </div>
   );

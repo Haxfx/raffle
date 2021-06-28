@@ -1,6 +1,5 @@
-import React from "react";
-import { FaLink, FaTelegramPlane, FaTwitter } from "react-icons/fa";
-import { VscGithubAlt } from "react-icons/vsc";
+import { FaLink, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
+import { VscGithubAlt } from 'react-icons/vsc';
 
 export function Footer() {
   return (
@@ -10,26 +9,27 @@ export function Footer() {
           EASY1 Raffles
         </span>
         <div className="flex w-full justify-self-center justify-between text-sm text-purple-light items-center">
-          <a href="#">Home</a>
-          <a href="#">Results</a>
-          <a href="#">Transactions</a>
-          <a href="#">About Us</a>
-          <a href="#">Terms of use</a>
-          <a href="#">Privacy Policy</a>
+          <a href="/">Home</a>
+          <a href="/">Results</a>
+          <a href="/">Transactions</a>
+          <a href="/">About Us</a>
+          <a href="/">Terms of use</a>
+          <a href="/">Privacy Policy</a>
         </div>
         <div className="flex justify-self-end justify-between">
-          <a href="#">
+          <a href="/">
             <VscGithubAlt className="h-8 w-8 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
-          <a href="https://t.me/EASY1StakePoolRaffles" target="_blank">
+          <a href="https://t.me/EASY1StakePoolRaffles" target="_blank" rel="noreferrer">
             <FaTelegramPlane className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
-          <a href="https://twitter.com/CryptoJoe101" target="_blank">
+          <a href="https://twitter.com/CryptoJoe101" target="_blank" rel="noreferrer">
             <FaTwitter className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a
             href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
             target="_blank"
+            rel="noreferrer"
           >
             <FaLink className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
@@ -41,6 +41,7 @@ export function Footer() {
           href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
           target="_blank"
           className="justify-self-center font-bold"
+          rel="noreferrer"
         >
           EASY1 Stakepool
         </a>

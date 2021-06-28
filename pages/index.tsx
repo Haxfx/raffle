@@ -1,11 +1,11 @@
-import { ChevronLeftIcon } from "@heroicons/react/solid";
-import { motion } from "framer-motion";
+import { ChevronLeftIcon } from '@heroicons/react/solid';
+import { motion } from 'framer-motion';
 
-import { HamburgerMenu as Hamburger } from "../components/Menu/Hamburger";
-import { Account } from "../components/Main/Account";
-import { Card, Board, Faq } from "./../components/Main";
-import { useMotion } from "../util/useMotion";
-import { Footer } from "./../components/Main/Footer";
+import { HamburgerMenu as Hamburger } from '../components/Menu/Hamburger';
+import { Account } from '../components/Main/Account';
+import { Card, Board, Faq } from '../components/Main';
+import { useMotion } from '../util/useMotion';
+import { Footer } from '../components/Main/Footer';
 
 const Index = () => {
   const { fadeInUp } = useMotion();
@@ -15,7 +15,7 @@ const Index = () => {
       <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
         <div className="grid grid-cols-1 gap-5 justify-around p-4">
           <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-            {/*<Menu />*/}
+            {/* <Menu /> */}
             <div className="flex justify-between">
               <Hamburger />
               <Account />

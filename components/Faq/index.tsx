@@ -1,5 +1,5 @@
-import React, { useState, useContext, createContext } from "react";
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { useState, useContext, createContext } from 'react';
+import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 
 let defaultValue;
 const ToggleContext = createContext(defaultValue);
@@ -30,14 +30,19 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
   return (
-    <div onClick={() => setToggleShow(!toggleShow)} {...restProps}>
+    <a
+      aria-hidden
+      onKeyDown={() => setToggleShow(!toggleShow)}
+      onClick={() => setToggleShow(!toggleShow)}
+      {...restProps}
+    >
       {children}
       {toggleShow ? (
         <VscChevronUp className="text-orange-primary h-6 w-6 mr-5" />
       ) : (
         <VscChevronDown className="text-blue-primary h-6 w-6 mr-5" />
       )}
-    </div>
+    </a>
   );
 };
 

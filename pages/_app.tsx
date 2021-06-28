@@ -1,9 +1,8 @@
-import React from "react";
-import App from "next/app";
-import { AnimatePresence } from "framer-motion";
+import App from 'next/app';
+import { AnimatePresence } from 'framer-motion';
 
-import "../styles/globals.css";
-import "../styles/custom.css";
+import '../styles/globals.css';
+import '../styles/custom.css';
 
 class Dashboard extends App {
   render() {

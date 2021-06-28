@@ -1,29 +1,29 @@
-import React, { useMemo } from "react";
-import { useTable } from "react-table";
+import { useMemo } from 'react';
+import { useTable } from 'react-table';
 
-export function OpenRaffles() {
+export const OpenRaffles = () => {
   const data = useMemo(
     () => [
       {
-        col1: "4",
-        col2: "275",
-        col3: "10 $ada",
-        col4: "0 $ada	",
-        col5: "5",
+        col1: '4',
+        col2: '275',
+        col3: '10 $ada',
+        col4: '0 $ada	',
+        col5: '5',
       },
       {
-        col1: "3",
-        col2: "274",
-        col3: "10 $ada",
-        col4: "0 $ada	",
-        col5: "15",
+        col1: '3',
+        col2: '274',
+        col3: '10 $ada',
+        col4: '0 $ada	',
+        col5: '15',
       },
       {
-        col1: "5",
-        col2: "276",
-        col3: "20 $ada",
-        col4: "0 $ada	",
-        col5: "45",
+        col1: '5',
+        col2: '276',
+        col3: '20 $ada',
+        col4: '0 $ada	',
+        col5: '45',
       },
     ],
     []
@@ -32,24 +32,24 @@ export function OpenRaffles() {
   const columns = useMemo(
     () => [
       {
-        Header: "Draw",
-        accessor: "col1", // accessor is the "key" in the data
+        Header: 'Draw',
+        accessor: 'col1', // accessor is the "key" in the data
       },
       {
-        Header: "Epoch Number",
-        accessor: "col2", // accessor is the "key" in the data
+        Header: 'Epoch Number',
+        accessor: 'col2', // accessor is the "key" in the data
       },
       {
-        Header: "Prize",
-        accessor: "col3",
+        Header: 'Prize',
+        accessor: 'col3',
       },
       {
-        Header: "Min Stake Required",
-        accessor: "col4",
+        Header: 'Min Stake Required',
+        accessor: 'col4',
       },
       {
-        Header: "Participants",
-        accessor: "col5",
+        Header: 'Participants',
+        accessor: 'col5',
       },
     ],
     []
@@ -57,13 +57,7 @@ export function OpenRaffles() {
 
   const tableInstance = useTable({ columns, data });
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   return (
     <div className="grid grid-cols-1">
@@ -86,7 +80,7 @@ export function OpenRaffles() {
                     >
                       {
                         // Render the header
-                        column.render("Header")
+                        column.render('Header')
                       }
                     </th>
                   ))
@@ -104,26 +98,18 @@ export function OpenRaffles() {
               prepareRow(row);
               return (
                 // Apply the row props
-                <tr
-                  {...row.getRowProps()}
-                  className="border-b-2 border-purple-dark"
-                >
+                <tr {...row.getRowProps()} className="border-b-2 border-purple-dark">
                   {
                     // Loop over the rows cells
-                    row.cells.map((cell) => {
+                    row.cells.map((cell) => (
                       // Apply the cell props
-                      return (
-                        <td
-                          {...cell.getCellProps()}
-                          className="text-center p-3"
-                        >
-                          {
-                            // Render the cell contents
-                            cell.render("Cell")
-                          }
-                        </td>
-                      );
-                    })
+                      <td {...cell.getCellProps()} className="text-center p-3">
+                        {
+                          // Render the cell contents
+                          cell.render('Cell')
+                        }
+                      </td>
+                    ))
                   }
                 </tr>
               );
@@ -133,4 +119,4 @@ export function OpenRaffles() {
       </table>
     </div>
   );
-}
+};
