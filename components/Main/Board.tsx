@@ -10,7 +10,6 @@ export function Board(): ReactElement {
       <TabMenu />
       <Epoch />
       <Tickets />
-
       <OpenRaffles />
     </div>
   );

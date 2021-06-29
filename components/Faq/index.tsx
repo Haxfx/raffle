@@ -1,22 +1,39 @@
-import { useState, useContext, createContext } from 'react';
+import {
+  ReactElement,
+  useState,
+  useContext,
+  createContext,
+  ReactNode,
+  SetStateAction,
+  Dispatch,
+} from 'react';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 
-let defaultValue;
-const ToggleContext = createContext(defaultValue);
+interface FaqContextInterface {
+  toggleShow: boolean;
+  setToggleShow: Dispatch<SetStateAction<boolean>>;
+}
 
-export default function Accordion({ children, ...restProps }) {
+const ToggleContext = createContext<FaqContextInterface | null>(null);
+
+interface IAccordion {
+  className?: string;
+  children: ReactNode;
+}
+
+export default function Accordion({ children, ...restProps }: IAccordion): ReactElement {
   return <div {...restProps}>{children}</div>;
 }
 
-Accordion.Title = function AccordionTitle({ children, ...restProps }) {
+Accordion.Title = function AccordionTitle({ children, ...restProps }: IAccordion): ReactElement {
   return <div {...restProps}>{children}</div>;
 };
 
-Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
+Accordion.Frame = function AccordionFrame({ children, ...restProps }: IAccordion): ReactElement {
   return <div {...restProps}>{children}</div>;
 };
 
-Accordion.Item = function AccordionItem({ children, ...restProps }) {
+Accordion.Item = function AccordionItem({ children, ...restProps }: IAccordion): ReactElement {
   const [toggleShow, setToggleShow] = useState(false);
 
   return (
@@ -26,7 +43,7 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
   );
 };
 
-Accordion.Header = function AccordionHeader({ children, ...restProps }) {
+Accordion.Header = function AccordionHeader({ children, ...restProps }: IAccordion): ReactElement {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
   return (
@@ -46,7 +63,7 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   );
 };
 
-Accordion.Body = function AccordionBody({ children, ...restProps }) {
+Accordion.Body = function AccordionBody({ children, ...restProps }: IAccordion): ReactElement {
   const { toggleShow } = useContext(ToggleContext);
 
   return toggleShow ? <div {...restProps}>{children}</div> : null;

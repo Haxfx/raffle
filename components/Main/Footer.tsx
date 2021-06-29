@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import { FaLink, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 import { VscGithubAlt } from 'react-icons/vsc';
 
-export function Footer() {
+export function Footer(): ReactElement {
   return (
     <div className="w-full bg-purple-dark border-t border-opacity-80 border-purple-medium justify-center sticky bottom-0">
       <div className="grid grid-cols-footer w-5/6 p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">

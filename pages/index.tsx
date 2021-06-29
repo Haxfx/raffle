@@ -1,13 +1,15 @@
 import { ChevronLeftIcon } from '@heroicons/react/solid';
 import { motion } from 'framer-motion';
 
+import { ReactElement } from 'react';
+
 import { HamburgerMenu as Hamburger } from '../components/Menu/Hamburger';
 import { Account } from '../components/Main/Account';
 import { Card, Board, Faq } from '../components/Main';
 import { useMotion } from '../util/useMotion';
 import { Footer } from '../components/Main/Footer';
 
-const Index = () => {
+const Index = (): ReactElement => {
   const { fadeInUp } = useMotion();
 
   return (
@@ -35,7 +37,7 @@ const Index = () => {
               <h1 className="text-2xl">Dashboard</h1>
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-6">
-              <Card title="Bets" value="0,02" currency="ada" />
+              <Card title="Jackpot" value="0,02" currency="ada" />
               <Card title="Tickets in Game" value="4" currency="tickets" />
               <Card title="Participants" value="8" />
               <Card title="Total Won" value="450" currency="$" />
