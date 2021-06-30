@@ -1,7 +1,8 @@
 import { ChevronLeftIcon } from '@heroicons/react/solid';
 import { motion } from 'framer-motion';
-
 import { ReactElement } from 'react';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
 
 import { HamburgerMenu as Hamburger } from '../components/Menu/Hamburger';
 import { Account } from '../components/Main/Account';
@@ -9,9 +10,11 @@ import { Card, Board, Faq } from '../components/Main';
 import { useMotion } from '../util/useMotion';
 import { Footer } from '../components/Main/Footer';
 import { PAGE, CARDS } from '../constants/context';
+import { fetchRaffles, useRafflesStats } from '../hooks';
 
 const Index = (): ReactElement => {
   const { fadeInUp } = useMotion();
+  const { data } = useRafflesStats();
 
   return (
     <div className="grid items-center w-full items-center">
@@ -38,9 +41,15 @@ const Index = (): ReactElement => {
               <h1 className="text-2xl">{PAGE.TITLE}</h1>
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-6">
-              {CARDS.CARDS.map((CARD, key) => (
-                <Card key={key} title={CARD.NAME} value={CARD.VALUE} currency={CARD.CURRENCY} />
-              ))}
+              {data &&
+                CARDS.CARDS.map((CARD, key) => (
+                  <Card
+                    key={key}
+                    title={CARD.NAME}
+                    value={data[CARD.KEY]}
+                    currency={CARD.CURRENCY}
+                  />
+                ))}
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4">
               <Board />
@@ -55,5 +64,17 @@ const Index = (): ReactElement => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(['raffles', 10], () => fetchRaffles(10));
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 export default Index;

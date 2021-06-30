@@ -5,18 +5,18 @@
   },
   {
     "Header": "Epoch Number",
-    "accessor": "col2"
+    "accessor": "epoch"
   },
   {
     "Header": "Prize",
-    "accessor": "col3"
+    "accessor": "prize"
   },
   {
     "Header": "Min Stake Required",
-    "accessor": "col4"
+    "accessor": "min_stake"
   },
   {
     "Header": "Participants",
-    "accessor": "col5"
+    "accessor": "num_participants"
   }
 ]

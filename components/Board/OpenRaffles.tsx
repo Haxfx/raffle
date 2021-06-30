@@ -1,12 +1,23 @@
-import { ReactElement, useMemo } from 'react';
+/* eslint-disable camelcase */
+import { ReactElement, useMemo, FC } from 'react';
 import { useTable } from 'react-table';
 
 import { RAFFLES } from '../../constants/context';
-import openRafflesData from '../../fixtures/openraffles.json';
 import tableColumns from '../../fixtures/tablecolumns.json';
+import { useRaffles } from '../../hooks/useRaffles';
+
+interface IRaffles {
+  epoch: string;
+  prize: string;
+  min_stake: string;
+  num_participants: string;
+}
 
 export const OpenRaffles = (): ReactElement => {
-  const data = useMemo(() => openRafflesData, []);
+  const { data: fetchedData } = useRaffles(10);
+  const filteredData = fetchedData.filter((item) => item.is_closed === false);
+
+  const data = useMemo(() => filteredData, []);
 
   const columns = useMemo(() => tableColumns, []);
 
@@ -16,8 +27,7 @@ export const OpenRaffles = (): ReactElement => {
 
   return (
     <div className="grid grid-cols-1">
-      <span className="p-5">{RAFFLES.TITLE}</span>
-
+      <span className="p-5">{RAFFLES.OPEN_TITLE}</span>
       <table {...getTableProps()} className="w-full mt-3">
         <thead>
           {

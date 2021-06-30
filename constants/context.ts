@@ -11,10 +11,10 @@ export const PAGE = {
 
 export const CARDS = {
   CARDS: [
-    { NAME: 'Jackpot', VALUE: '0,02', CURRENCY: 'ADA' },
-    { NAME: 'Tickets in game', VALUE: '4', CURRENCY: 'tickets' },
-    { NAME: 'Participants', VALUE: '8', CURRENCY: '' },
-    { NAME: 'Total won', VALUE: '450', CURRENCY: '$' },
+    { NAME: 'Jackpot', VALUE: '0,02', CURRENCY: 'ADA', KEY: '' },
+    { NAME: 'Participants', VALUE: '8', CURRENCY: '', KEY: 'raffles_participants_total' },
+    { NAME: 'Total Raffles', VALUE: '4', CURRENCY: 'raffles', KEY: 'raffles_num_total' },
+    { NAME: 'Total won', VALUE: '450', CURRENCY: '$', KEY: 'raffles_prize_total' },
   ],
 };
 
@@ -33,7 +33,8 @@ export const DRAWS = {
 };
 
 export const RAFFLES = {
-  TITLE: 'Open Raffles',
+  OPEN_TITLE: 'Open Raffles',
+  CLOSED_TITLE: 'Closed Raffles',
 };
 
 export const FAQ = {

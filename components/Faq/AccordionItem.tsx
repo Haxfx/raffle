@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react';
 import { VscChevronUp } from 'react-icons/vsc';
+import ReactHtmlParser from 'react-html-parser';
 
 interface AccordionItemProps {
-  title: React.ReactNode;
-  content: React.ReactNode;
+  title: string;
+  content: string;
   className?: string;
 }
 
@@ -41,7 +42,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, ..
         style={{ maxHeight: `${height}` }}
         className="overflow-auto transition-max-height duration-700 ease-in-out"
       >
-        <div className="p-4 text-sm font-thin">{content}</div>
+        <div className="p-4 text-sm font-thin">{ReactHtmlParser(content)}</div>
       </div>
     </div>
   );
