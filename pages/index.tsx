@@ -8,6 +8,7 @@ import { Account } from '../components/Main/Account';
 import { Card, Board, Faq } from '../components/Main';
 import { useMotion } from '../util/useMotion';
 import { Footer } from '../components/Main/Footer';
+import { PAGE, CARDS } from '../constants/context';
 
 const Index = (): ReactElement => {
   const { fadeInUp } = useMotion();
@@ -30,17 +31,16 @@ const Index = (): ReactElement => {
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
               <span className="flex text-xs text-purple-light uppercase">
                 <ChevronLeftIcon className="w-4 h-4" />
-                Bread
+                {PAGE.BREADCRUM}
               </span>
             </motion.div>
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-              <h1 className="text-2xl">Dashboard</h1>
+              <h1 className="text-2xl">{PAGE.TITLE}</h1>
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-6">
-              <Card title="Jackpot" value="0,02" currency="ada" />
-              <Card title="Tickets in Game" value="4" currency="tickets" />
-              <Card title="Participants" value="8" />
-              <Card title="Total Won" value="450" currency="$" />
+              {CARDS.CARDS.map((CARD, key) => (
+                <Card key={key} title={CARD.NAME} value={CARD.VALUE} currency={CARD.CURRENCY} />
+              ))}
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4">
               <Board />

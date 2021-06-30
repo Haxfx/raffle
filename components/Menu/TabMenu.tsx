@@ -1,4 +1,5 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
+import { BOARD } from '../../constants/context';
 
 type Props = {
   title: string;
@@ -23,24 +24,30 @@ const Line = () => (
 );
 
 export function TabMenu(): ReactElement {
+  const [tickets, setTickets] = useState<number>();
   const active = true;
+
+  useEffect(() => {
+    setTickets(4);
+  }, []);
 
   return (
     <div className="flex items-start w-full relative">
       <Line />
-      <TabItem title="Transactions" />
-      <TabItem active title="My Tickets">
-        <span
-          className={`text-white ml-2 px-2 self-center rounded-full ${
-            active ? `bg-blue-primary` : `bg-purple-light`
-          }
+      {BOARD.TABS.map((TAB, key) => (
+        <TabItem key={key} active={key === 1} title={TAB.NAME}>
+          {key === 1 && (
+            <span
+              className={`text-white ml-2 px-2 self-center rounded-full ${
+                active ? `bg-blue-primary` : `bg-purple-light`
+              }
           hover:cursor-pointer`}
-        >
-          4
-        </span>
-      </TabItem>
-      <TabItem title="Referral Program" />
-      <TabItem title="Operator Panel" />
+            >
+              {tickets}
+            </span>
+          )}
+        </TabItem>
+      ))}
     </div>
   );
 }

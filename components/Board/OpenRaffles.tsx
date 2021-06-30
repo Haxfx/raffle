@@ -1,59 +1,14 @@
-import { useMemo } from 'react';
+import { ReactElement, useMemo } from 'react';
 import { useTable } from 'react-table';
 
-export const OpenRaffles = () => {
-  const data = useMemo(
-    () => [
-      {
-        col1: '4',
-        col2: '275',
-        col3: '10 $ada',
-        col4: '0 $ada	',
-        col5: '5',
-      },
-      {
-        col1: '3',
-        col2: '274',
-        col3: '10 $ada',
-        col4: '0 $ada	',
-        col5: '15',
-      },
-      {
-        col1: '5',
-        col2: '276',
-        col3: '20 $ada',
-        col4: '0 $ada	',
-        col5: '45',
-      },
-    ],
-    []
-  );
+import { RAFFLES } from '../../constants/context';
+import openRafflesData from '../../fixtures/openraffles.json';
+import tableColumns from '../../fixtures/tablecolumns.json';
 
-  const columns = useMemo(
-    () => [
-      {
-        Header: 'Draw',
-        accessor: 'col1', // accessor is the "key" in the data
-      },
-      {
-        Header: 'Epoch Number',
-        accessor: 'col2', // accessor is the "key" in the data
-      },
-      {
-        Header: 'Prize',
-        accessor: 'col3',
-      },
-      {
-        Header: 'Min Stake Required',
-        accessor: 'col4',
-      },
-      {
-        Header: 'Participants',
-        accessor: 'col5',
-      },
-    ],
-    []
-  );
+export const OpenRaffles = (): ReactElement => {
+  const data = useMemo(() => openRafflesData, []);
+
+  const columns = useMemo(() => tableColumns, []);
 
   const tableInstance = useTable({ columns, data });
 
@@ -61,7 +16,7 @@ export const OpenRaffles = () => {
 
   return (
     <div className="grid grid-cols-1">
-      <span className="p-5">Open Raffles</span>
+      <span className="p-5">{RAFFLES.TITLE}</span>
 
       <table {...getTableProps()} className="w-full mt-3">
         <thead>

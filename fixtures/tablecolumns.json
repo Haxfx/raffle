@@ -1,0 +1,22 @@
+[
+  {
+    "Header": "Draw",
+    "accessor": "col1"
+  },
+  {
+    "Header": "Epoch Number",
+    "accessor": "col2"
+  },
+  {
+    "Header": "Prize",
+    "accessor": "col3"
+  },
+  {
+    "Header": "Min Stake Required",
+    "accessor": "col4"
+  },
+  {
+    "Header": "Participants",
+    "accessor": "col5"
+  }
+]

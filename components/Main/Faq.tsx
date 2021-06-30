@@ -1,23 +1,22 @@
 import { ReactElement } from 'react';
 import Accordion from '../Faq';
 import faqsData from '../../fixtures/faqs.json';
+import { AccordionItem } from '../Faq/AccordionItem';
+import { FAQ } from '../../constants/context';
 
 export const Faq = (): ReactElement => (
   <div>
     <Accordion className="block bg-blue-backgroundLight border-b-2 border-purple-dark">
-      <Accordion.Title className="flex self-center text-center p-5">
-        Frequently Asked Questions
-      </Accordion.Title>
+      <Accordion.Title className="flex self-center text-center p-5">{FAQ.TITLE}</Accordion.Title>
 
       <Accordion.Frame>
         {faqsData.map((item) => (
-          <Accordion.Item key={item.id} className="w-full border-b-2 border-purple-dark">
-            <Accordion.Header className="flex py-4 cursor-pointer justify-between">
-              <span className="ml-5 text-sm">{item.header}</span>
-            </Accordion.Header>
-
-            <Accordion.Body className="p-4 text-sm font-thin">{item.body}</Accordion.Body>
-          </Accordion.Item>
+          <AccordionItem
+            key={item.id}
+            className="w-full border-b-2 border-purple-dark"
+            title={item.header}
+            content={item.body}
+          />
         ))}
       </Accordion.Frame>
     </Accordion>

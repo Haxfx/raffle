@@ -1,4 +1,6 @@
-export function Account() {
+import { ReactElement } from 'react';
+
+export function Account(): ReactElement {
   return (
     <div className="flex jusitfy-between text-xs items-center">
       <div className="mr-10">User Info</div>

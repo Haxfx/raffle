@@ -1,3 +1,7 @@
+import { ReactElement } from 'react';
+
+import { TICKETS } from '../../constants/context';
+
 const tickets = [
   {
     nr: 1,
@@ -32,14 +36,16 @@ interface ITicket {
 
 const Ticket = ({ winner, nr }: ITicket) => (
   <div className="flex flex-col w-full border-solid border-2 border-purple-light border-opacity-30 p-3 h-28 items-between justify-between">
-    <div className="justify-self-center text-purple-light">Ticket #{nr}</div>
+    <div className="justify-self-center text-purple-light">
+      {TICKETS.NAME} #{nr}
+    </div>
     <div className="justify-self-center text-white">
-      Winner <span className="text-orange-primary">{winner}</span>
+      {TICKETS.WINNER} <span className="text-orange-primary">{winner}</span>
     </div>
   </div>
 );
 
-export const Tickets = () => (
+export const Tickets = (): ReactElement => (
   <div className="w-full grid grid-cols-4 gap-5 p-5">
     {tickets.map((t) => (
       <Ticket key={t.nr} winner={t.winner} nr={t.nr} />

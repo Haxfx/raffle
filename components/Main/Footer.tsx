@@ -2,20 +2,21 @@ import { ReactElement } from 'react';
 import { FaLink, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 import { VscGithubAlt } from 'react-icons/vsc';
 
+import { FOOTER } from '../../constants/context';
+
 export function Footer(): ReactElement {
   return (
     <div className="w-full bg-purple-dark border-t border-opacity-80 border-purple-medium justify-center sticky bottom-0">
       <div className="grid grid-cols-footer w-5/6 p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">
         <span className="justify-self-start self-center uppercase font-semibold mt-1">
-          EASY1 Raffles
+          {FOOTER.TITLE}
         </span>
         <div className="flex w-full justify-self-center justify-between text-sm text-purple-light items-center">
-          <a href="/">Home</a>
-          <a href="/">Results</a>
-          <a href="/">Transactions</a>
-          <a href="/">About Us</a>
-          <a href="/">Terms of use</a>
-          <a href="/">Privacy Policy</a>
+          {FOOTER.MENUITEMS.map((ITEM, key) => (
+            <a key={key} href="/" className="hover:text-purple-primary">
+              {ITEM}
+            </a>
+          ))}
         </div>
         <div className="flex justify-self-end justify-between">
           <a href="/">
@@ -37,16 +38,18 @@ export function Footer(): ReactElement {
         </div>
       </div>
       <div className="grid grid-cols-3 justify-items-stretch justify-between w-5/6 p-3 m-auto text-xs text-purple-light">
-        <span>© Easy1Raffle, 2021</span>
+        <span className="hover:text-blue-primary cursor-pointer">{FOOTER.COPYRIGHT}</span>
         <a
           href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
           target="_blank"
-          className="justify-self-center font-bold"
+          className="justify-self-center font-bold hover:text-blue-primary cursor-pointer"
           rel="noreferrer"
         >
-          EASY1 Stakepool
+          {FOOTER.LINK}
         </a>
-        <span className="justify-self-end">Build by Gio & Seb</span>
+        <span className="justify-self-end hover:text-blue-primary cursor-pointer">
+          {FOOTER.CREDITS}
+        </span>
       </div>
     </div>
   );
