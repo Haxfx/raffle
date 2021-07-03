@@ -10,11 +10,11 @@ export function Account(): ReactElement {
   const [paymentAddress, setPaymentAddress] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const { data, mutate, isLoading, isError, error } = useMutation(joinRaffles, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       // Very good success
       setConfirmOpen(false);
     },
-    onError: (error, variables, context) => {
+    onError: (error: any) => {
       // An error happened!
       setErrorMessage(error.response.data);
     },
