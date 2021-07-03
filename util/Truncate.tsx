@@ -32,3 +32,15 @@ export const Truncate = ({
     {children}
   </ShowMoreText>
 );
+
+export const truncate = (str, len) => {
+  if (str.length > len) {
+    if (len <= 3) {
+      return `${str.slice(0, len - 3)}...`;
+    }
+
+    return `${str.slice(0, len)}...`;
+  }
+
+  return str;
+};

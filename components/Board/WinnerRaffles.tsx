@@ -2,14 +2,15 @@
 import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
 import { useTable } from 'react-table';
 import { VscChevronUp } from 'react-icons/vsc';
+import ReactHtmlParser from 'react-html-parser';
 
 import { RAFFLES } from '../../constants/context';
-import tableColumns from '../../fixtures/tablecolumns.json';
+import winnersColumns from '../../fixtures/winnerscolums.json';
+import { truncate } from '../../util/Truncate';
 
-export const ClosedRaffles = ({ fetchedData }: any): ReactElement => {
-  const filteredData = fetchedData.filter((item) => item.is_closed === true);
-  const data = useMemo(() => filteredData, []);
-  const columns = useMemo(() => tableColumns, []);
+export const WinnerRaffles = ({ fetchedData }: any): ReactElement => {
+  const data = useMemo(() => fetchedData, []);
+  const columns = useMemo(() => winnersColumns, []);
   const tableInstance = useTable({ columns, data });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   const [active, setActive] = useState(false);
@@ -28,6 +29,14 @@ export const ClosedRaffles = ({ fetchedData }: any): ReactElement => {
     );
   }
 
+  function setTxLink(tx) {
+    return `https://cardanoscan.io/transaction/${tx}`;
+  }
+
+  useEffect(() => {
+    toggleAccordion();
+  }, []);
+
   return (
     <div className="grid grid-cols-1">
       <div>
@@ -36,7 +45,7 @@ export const ClosedRaffles = ({ fetchedData }: any): ReactElement => {
           className="w-full flex justify-between box-border appearance-none cursor-pointer focus:outline-none flex items-center justify-between"
           onClick={toggleAccordion}
         >
-          <span className="p-5">{RAFFLES.CLOSED_TITLE}</span>
+          <span className="p-5">{RAFFLES.WINNER_TITLE}</span>
           <VscChevronUp className={`${transform} inline-block h-6 w-6 mr-5`} />
         </button>
         <div
@@ -86,10 +95,18 @@ export const ClosedRaffles = ({ fetchedData }: any): ReactElement => {
                           row.cells.map((cell) => (
                             // Apply the cell props
                             <td {...cell.getCellProps()} className="text-center p-3">
-                              {
+                              {(cell.column.id === 'tx_id' && (
+                                <a
+                                  href={setTxLink(cell.value)}
+                                  target="_blank"
+                                  className="text-blue-primary"
+                                  rel="noreferrer"
+                                >
+                                  {truncate(cell.value, 5)}
+                                </a>
+                              )) ||
                                 // Render the cell contents
-                                cell.render('Cell')
-                              }
+                                cell.render('Cell')}
                             </td>
                           ))
                         }

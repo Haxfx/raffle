@@ -4,7 +4,6 @@ import { useTable } from 'react-table';
 
 import { RAFFLES } from '../../constants/context';
 import tableColumns from '../../fixtures/tablecolumns.json';
-import { useRaffles } from '../../hooks/useRaffles';
 
 interface IRaffles {
   epoch: string;
@@ -13,8 +12,7 @@ interface IRaffles {
   num_participants: string;
 }
 
-export const OpenRaffles = (): ReactElement => {
-  const { data: fetchedData } = useRaffles(10);
+export const OpenRaffles = ({ fetchedData }: any): ReactElement => {
   const filteredData = fetchedData.filter((item) => item.is_closed === false);
 
   const data = useMemo(() => filteredData, []);

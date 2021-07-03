@@ -35,6 +35,7 @@ export const DRAWS = {
 export const RAFFLES = {
   OPEN_TITLE: 'Open Raffles',
   CLOSED_TITLE: 'Closed Raffles',
+  WINNER_TITLE: 'Winners',
 };
 
 export const FAQ = {
