@@ -12,8 +12,6 @@ export function Board(): ReactElement {
   const { data: winnerData } = useWinnerRaffles();
   const [currentEpoch, setCurrentEpoch] = useState<number>(274);
 
-  console.log('winnerdata', winnerData);
-
   useEffect(() => {
     if (data) setCurrentEpoch(data[0].epoch);
   }, [data]);

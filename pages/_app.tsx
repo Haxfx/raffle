@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+import { ToasterProvider } from '../hooks/useToaster';
 import '../styles/globals.css';
 import '../styles/custom.css';
 
@@ -14,16 +15,18 @@ class Dashboard extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     return (
-      <QueryClientProvider client={this.queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <div className="font-Poppins text-white">
-            <AnimatePresence exitBeforeEnter>
-              <Component {...pageProps} key={router.route} />
-            </AnimatePresence>
-          </div>
-        </Hydrate>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      <AnimatePresence exitBeforeEnter>
+        <ToasterProvider>
+          <QueryClientProvider client={this.queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+              <div className="font-Poppins text-white">
+                <Component {...pageProps} key={router.route} />
+              </div>
+            </Hydrate>
+            <ReactQueryDevtools />
+          </QueryClientProvider>
+        </ToasterProvider>
+      </AnimatePresence>
     );
   }
 }

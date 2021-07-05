@@ -5,21 +5,24 @@ import { RiUserLine } from 'react-icons/ri';
 import { ConfirmDialog } from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
 import { DIALOG } from '../../constants/context';
+import { useToaster } from '../../hooks/useToaster';
 
 export function Account(): ReactElement {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const queryClient = useQueryClient();
   const [paymentAddress, setPaymentAddress] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { addToaster } = useToaster();
   const { mutate, isError } = useMutation(joinRaffles, {
     onSuccess: () => {
-      // Very good success could add a notification
       setConfirmOpen(false);
+      addToaster({ type: 'success', text: 'Goodluck, you have joined the raffle' });
     },
     // need to be typed
     onError: (error: any) => {
       // An error happened!
       setErrorMessage(error.response.data);
+      addToaster({ type: 'error', text: error.response.data });
     },
     onSettled: () => {
       queryClient.invalidateQueries('create');
