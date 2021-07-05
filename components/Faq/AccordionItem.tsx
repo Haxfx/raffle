@@ -32,10 +32,10 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, ..
         className="w-full lg:flex grid grid-cols-7by1 text-left justify-between box-border appearance-none cursor-pointer focus:outline-none flex items-center justify-between"
         onClick={toggleAccordion}
       >
-        <p className="flex py-4 cursor-pointer justify-between pr-2">
-          <span className="ml-5 text-sm">{title}</span>
+        <p className="flex ml-5 py-4 pr-2 cursor-pointer justify-between">
+          <span className="text-sm">{title}</span>
         </p>
-        <VscChevronUp className={`${transform} inline-block h-6 w-6 mr-5`} />
+        <VscChevronUp className={`${transform} inline-block h-6 w-6 lg:mr-5`} />
       </button>
       <div
         ref={contentSpace}
