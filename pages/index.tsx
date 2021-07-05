@@ -68,7 +68,7 @@ const Index = (): ReactElement => {
         </div>
         <Footer />
       </motion.div>
-      <ScrollTop />
+      <ScrollTop className="lg:hidden" />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { BiArrowToTop } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 
-export const ScrollTop = (): ReactElement => {
+export const ScrollTop = (props): ReactElement => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -27,8 +27,8 @@ export const ScrollTop = (): ReactElement => {
   };
 
   return (
-    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-      <div className="fixed bottom-10 right-5">
+    <motion.div {...props} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+      <div className="fixed bottom-36 right-5">
         {isVisible && (
           <div
             role="button"
