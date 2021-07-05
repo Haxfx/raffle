@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 import { useRaffles, useWinnerRaffles } from '../../hooks/useRaffles';
 import { TabMenu } from '../Menu/TabMenu';
@@ -9,14 +9,17 @@ import { ClosedRaffles } from '../Board/ClosedRaffles';
 
 export function Board(): ReactElement {
   const { data } = useRaffles();
-  console.log(typeof data);
-  console.log('data', data);
   const { data: winnerData } = useWinnerRaffles();
+  const [currentEpoch, setCurrentEpoch] = useState<number>(274);
+
+  useEffect(() => {
+    if (data) setCurrentEpoch(data[0].epoch);
+  }, [data]);
 
   return (
     <div className="bg-blue-backgroundLight">
       <TabMenu />
-      <Epoch />
+      <Epoch epoch={currentEpoch} />
       <Tickets />
       {data && <OpenRaffles fetchedData={data} />}
       {winnerData && <WinnerRaffles fetchedData={winnerData} />}

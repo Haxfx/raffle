@@ -3,8 +3,12 @@ import { GrStackOverflow } from 'react-icons/gr';
 
 import { DRAWS } from '../../constants/context';
 
-export function Epoch(): ReactElement {
-  const epochArray = DRAWS.TOTAL_ROUNDS.toString().split('');
+interface EpochProps {
+  epoch: number;
+}
+
+export function Epoch({ epoch }: EpochProps): ReactElement {
+  const epochArray = epoch.toString().split('');
 
   return (
     <div className="flex justify-between px-5 pt-5 text-white">

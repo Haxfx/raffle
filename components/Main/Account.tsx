@@ -1,5 +1,6 @@
 import { ReactElement, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
+import { RiUserLine } from 'react-icons/ri';
 
 import ConfirmDialog from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
@@ -36,7 +37,9 @@ export function Account(): ReactElement {
       {
         // get variables from constant
       }
-      <div className="mr-10">User Info</div>
+      <div className="mr-10">
+        <RiUserLine className="h-6 w-6 hover:text-blue-primary cursor-pointer" />
+      </div>
       <div>
         <button
           type="button"
