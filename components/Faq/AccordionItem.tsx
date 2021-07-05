@@ -29,7 +29,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, ..
     <div {...restProps}>
       <button
         type="button"
-        className="w-full lg:flex grid grid-cols-7by1 text-left justify-between box-border appearance-none cursor-pointer focus:outline-none flex items-center justify-between"
+        className="w-full lg:flex grid lg:grid-cols-7by1 grid-cols-4by1 text-left justify-between box-border appearance-none cursor-pointer focus:outline-none flex items-center justify-between"
         onClick={toggleAccordion}
       >
         <p className="flex ml-5 py-4 pr-2 cursor-pointer justify-between">
