@@ -6,7 +6,7 @@ import { dehydrate } from 'react-query/hydration';
 
 import { HamburgerMenu as Hamburger } from '../components/Menu/Hamburger';
 import { Account } from '../components/Main/Account';
-import { Card, Board, Faq } from '../components/Main';
+import { Card, Board, Faq, ScrollTop } from '../components/Main';
 import { useMotion } from '../util/useMotion';
 import { Footer } from '../components/Main/Footer';
 import { PAGE, CARDS } from '../constants/context';
@@ -17,16 +17,20 @@ const Index = (): ReactElement => {
   const { data } = useRafflesStats();
 
   return (
-    <div className="grid items-center w-full items-center">
+    <div className="grid items-center w-full items-center relative">
       <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
+        <motion.div
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          className="lg:w-5/6 lg:static sticky justify-around m-auto top-0 lg:bg-transparent lg:border-none bg-blue-background border-b border-gray-base"
+        >
+          {/* <Menu /> */}
+          <div className="flex justify-between p-4">
+            <Hamburger />
+            <Account />
+          </div>
+        </motion.div>
         <div className="grid grid-cols-1 gap-5 justify-around p-4">
-          <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-            {/* <Menu /> */}
-            <div className="flex justify-between lg:static sticky top-0">
-              <Hamburger />
-              <Account />
-            </div>
-          </motion.div>
           <motion.div
             variants={fadeInUp}
             className="grid grid-cols-1 gap-5 justify-around lg:w-5/6 w-full m-auto"
@@ -64,6 +68,7 @@ const Index = (): ReactElement => {
         </div>
         <Footer />
       </motion.div>
+      <ScrollTop />
     </div>
   );
 };

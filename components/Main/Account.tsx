@@ -37,7 +37,7 @@ export function Account(): ReactElement {
       {
         // get variables from constant
       }
-      <div className="mr-10">
+      <div className="lg:mr-10 lg:static hidden">
         <RiUserLine className="h-6 w-6 hover:text-blue-primary cursor-pointer" />
       </div>
       <div>

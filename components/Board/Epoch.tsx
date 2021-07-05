@@ -14,7 +14,7 @@ export function Epoch({ epoch }: EpochProps): ReactElement {
     <div className="flex justify-between px-5 pt-5 text-white">
       <span className="self-center">{DRAWS.TITLE}</span>
       <div className="flex items-center justify-center">
-        <GrStackOverflow className="h-6 w-6" />
+        <GrStackOverflow className="lg:block hidden h-6 w-6" />
         <span className="mx-2">{DRAWS.ROUNDS}</span>
         <div className="flex">
           {epochArray.map((char, key) => (

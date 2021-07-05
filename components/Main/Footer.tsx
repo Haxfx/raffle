@@ -11,7 +11,7 @@ export function Footer(): ReactElement {
         <span className="justify-self-start self-center uppercase font-semibold mt-1 lg:block hidden">
           {FOOTER.TITLE}
         </span>
-        <div className="grid grid-cols-2 gap-2 lg:flex lg:flex-row w-full lg:justify-self-center justify-between text-sm text-purple-light lg:items-center items-start">
+        <div className="lg:flex lg:flex-row hidden grid-cols-2 gap-2 w-full lg:justify-self-center justify-between text-sm text-purple-light lg:items-center items-start">
           {FOOTER.MENUITEMS.map((ITEM, key) => (
             <a key={key} href="/" className="hover:text-purple-primary my-1 justify-self-center">
               {ITEM}
@@ -20,20 +20,20 @@ export function Footer(): ReactElement {
         </div>
         <div className="flex lg:justify-self-end justify-between lg:m-0 mt-2 lg:w-auto w-5/6 self-center">
           <a href="/">
-            <VscGithubAlt className="w-8 h-8 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <VscGithubAlt className="w-10 h-10 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://t.me/EASY1StakePoolRaffles" target="_blank" rel="noreferrer">
-            <FaTelegramPlane className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTelegramPlane className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://twitter.com/CryptoJoe101" target="_blank" rel="noreferrer">
-            <FaTwitter className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTwitter className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a
             href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
             target="_blank"
             rel="noreferrer"
           >
-            <FaLink className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaLink className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
         </div>
       </div>
