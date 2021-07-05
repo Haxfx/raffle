@@ -32,7 +32,7 @@ export function TabMenu(): ReactElement {
   }, []);
 
   return (
-    <div className="flex items-start w-full relative">
+    <div className="lg:flex items-start w-full relative  hidden">
       <Line />
       {BOARD.TABS.map((TAB, key) => (
         <TabItem key={key} active={key === 1} title={TAB.NAME}>

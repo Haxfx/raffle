@@ -1,9 +1,5 @@
 [
   {
-    "Header": "Draw",
-    "accessor": "col1"
-  },
-  {
     "Header": "Epoch Number",
     "accessor": "epoch"
   },

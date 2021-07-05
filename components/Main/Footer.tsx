@@ -6,43 +6,43 @@ import { FOOTER } from '../../constants/context';
 
 export function Footer(): ReactElement {
   return (
-    <div className="w-full bg-purple-dark border-t border-opacity-80 border-purple-medium justify-center sticky bottom-0">
-      <div className="grid grid-cols-footer w-5/6 p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">
-        <span className="justify-self-start self-center uppercase font-semibold mt-1">
+    <div className="w-full bg-purple-dark border-t border-opacity-80 border-purple-medium justify-center lg:sticky static bottom-0">
+      <div className="lg:grid lg:grid-cols-footer flex flex-col w-5/6 p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">
+        <span className="justify-self-start self-center uppercase font-semibold mt-1 lg:block hidden">
           {FOOTER.TITLE}
         </span>
-        <div className="flex w-full justify-self-center justify-between text-sm text-purple-light items-center">
+        <div className="grid grid-cols-2 gap-2 lg:flex lg:flex-row w-full lg:justify-self-center justify-between text-sm text-purple-light lg:items-center items-start">
           {FOOTER.MENUITEMS.map((ITEM, key) => (
-            <a key={key} href="/" className="hover:text-purple-primary">
+            <a key={key} href="/" className="hover:text-purple-primary my-1 justify-self-center">
               {ITEM}
             </a>
           ))}
         </div>
-        <div className="flex justify-self-end justify-between">
+        <div className="flex lg:justify-self-end justify-between lg:m-0 mt-2 lg:w-auto w-5/6 self-center">
           <a href="/">
-            <VscGithubAlt className="h-8 w-8 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <VscGithubAlt className="w-8 h-8 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://t.me/EASY1StakePoolRaffles" target="_blank" rel="noreferrer">
-            <FaTelegramPlane className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTelegramPlane className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://twitter.com/CryptoJoe101" target="_blank" rel="noreferrer">
-            <FaTwitter className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTwitter className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a
             href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
             target="_blank"
             rel="noreferrer"
           >
-            <FaLink className="h-8 w-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaLink className="w-8 h-8 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
         </div>
       </div>
-      <div className="grid grid-cols-3 justify-items-stretch justify-between w-5/6 p-3 m-auto text-xs text-purple-light">
+      <div className="grid lg:grid-cols-3 grid-cols-2 justify-items-stretch justify-between w-5/6 p-3 m-auto text-xs text-purple-light">
         <span className="hover:text-blue-primary cursor-pointer">{FOOTER.COPYRIGHT}</span>
         <a
           href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
           target="_blank"
-          className="justify-self-center font-bold hover:text-blue-primary cursor-pointer"
+          className="justify-self-center font-bold hover:text-blue-primary cursor-pointer lg:block hidden"
           rel="noreferrer"
         >
           {FOOTER.LINK}

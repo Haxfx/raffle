@@ -12,6 +12,8 @@ export function Board(): ReactElement {
   const { data: winnerData } = useWinnerRaffles();
   const [currentEpoch, setCurrentEpoch] = useState<number>(274);
 
+  console.log('winnerdata', winnerData);
+
   useEffect(() => {
     if (data) setCurrentEpoch(data[0].epoch);
   }, [data]);
@@ -20,7 +22,7 @@ export function Board(): ReactElement {
     <div className="bg-blue-backgroundLight">
       <TabMenu />
       <Epoch epoch={currentEpoch} />
-      <Tickets />
+      {winnerData && <Tickets fetchedData={winnerData} />}
       {data && <OpenRaffles fetchedData={data} />}
       {winnerData && <WinnerRaffles fetchedData={winnerData} />}
       {data && <ClosedRaffles fetchedData={data} />}

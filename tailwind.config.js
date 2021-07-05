@@ -75,7 +75,9 @@ module.exports = {
       },
       gridTemplateColumns: {
         // Simple 2 column grid
-        2: '1fr 4fr',
+        '2by4': '1fr 4fr',
+        '4by1': '4fr 1fr',
+        '7by1': '7fr 1fr',
         // Complex site-specific column configuration
         footer: '1fr 3fr 1fr',
       },

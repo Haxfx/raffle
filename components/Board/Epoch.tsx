@@ -12,13 +12,13 @@ export function Epoch({ epoch }: EpochProps): ReactElement {
 
   return (
     <div className="flex justify-between px-5 pt-5 text-white">
-      <span>{DRAWS.TITLE}</span>
+      <span className="self-center">{DRAWS.TITLE}</span>
       <div className="flex items-center justify-center">
         <GrStackOverflow className="h-6 w-6" />
         <span className="mx-2">{DRAWS.ROUNDS}</span>
         <div className="flex">
           {epochArray.map((char, key) => (
-            <div key={key} className="bg-blue-primary px-2 py-1 ml-2">
+            <div key={key} className="bg-orange-primary px-2 py-1 ml-2">
               {char}
             </div>
           ))}

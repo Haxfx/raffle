@@ -27,7 +27,7 @@ export const BOARD = {
   ],
 };
 export const DRAWS = {
-  TITLE: 'Last Draws',
+  TITLE: 'Last Wins',
   ROUNDS: 'Epoch',
   TOTAL_ROUNDS: '274',
 };
@@ -43,7 +43,7 @@ export const FAQ = {
 };
 
 export const TICKETS = {
-  NAME: 'Ticket',
+  NAME: 'Epoch',
   WINNER: 'Winner',
 };
 

@@ -22,14 +22,14 @@ const Index = (): ReactElement => {
         <div className="grid grid-cols-1 gap-5 justify-around p-4">
           <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
             {/* <Menu /> */}
-            <div className="flex justify-between">
+            <div className="flex justify-between lg:static sticky top-0">
               <Hamburger />
               <Account />
             </div>
           </motion.div>
           <motion.div
             variants={fadeInUp}
-            className="grid grid-cols-1 gap-5 justify-around w-5/6 m-auto"
+            className="grid grid-cols-1 gap-5 justify-around lg:w-5/6 w-full m-auto"
           >
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
               <span className="flex text-xs text-purple-light uppercase">
@@ -40,7 +40,10 @@ const Index = (): ReactElement => {
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
               <h1 className="text-2xl">{PAGE.TITLE}</h1>
             </motion.div>
-            <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-6">
+            <motion.div
+              variants={fadeInUp}
+              className="grid lg:grid-cols-4 lg:gap-6 grid-cols-2 gap-4"
+            >
               {data &&
                 CARDS.CARDS.map((CARD, key) => (
                   <Card
