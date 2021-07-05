@@ -1,6 +1,6 @@
 [
   {
-    "Header": "Epoch Number",
+    "Header": "Epoch",
     "accessor": "epoch"
   },
   {
@@ -8,7 +8,7 @@
     "accessor": "stake_id"
   },
   {
-    "Header": "Winning amount",
+    "Header": "Prize",
     "accessor": "winning_amount"
   },
   {

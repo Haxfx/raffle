@@ -1,6 +1,6 @@
 [
   {
-    "Header": "Epoch Number",
+    "Header": "Epoch",
     "accessor": "epoch"
   },
   {
@@ -8,7 +8,7 @@
     "accessor": "prize"
   },
   {
-    "Header": "Min Stake Required",
+    "Header": "Stake Req.",
     "accessor": "min_stake"
   },
   {

@@ -12,7 +12,7 @@ interface ITicket {
 const Ticket = ({ winner, nr, tx }: ITicket) => (
   <div className="flex flex-col w-full border-solid border-2 border-purple-light border-opacity-30 p-3 h-28 items-between justify-between">
     <div className="justify-self-center text-purple-light">
-      {TICKETS.NAME} <span>#{nr}</span>
+      <span className="lg:inline hidden">{TICKETS.NAME}</span> <span>#{nr}</span>
     </div>
     <div className="justify-self-center text-white flex flex-col">
       <span>{TICKETS.WINNER}</span>
