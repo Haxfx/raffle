@@ -30,7 +30,7 @@ type Props = {
 
 export const Alert: FC<Props> = (props) => (
   <Styled
-    className="relative border-2 rounded-l rounded-r mb-2 py-3 px-6 max-w-450px w-full bg-white"
+    className="relative border-2 rounded-xl rounded-r mb-2 py-3 px-6 max-w-450px w-full bg-white"
     {...props}
   >
     {props.children}
