@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
-import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
+import { ReactElement, useMemo, useState, useRef } from 'react';
 import { useTable } from 'react-table';
 import { VscChevronUp } from 'react-icons/vsc';
 
 import { RAFFLES } from '../../constants/context';
 import tableColumns from '../../fixtures/tablecolumns.json';
 
-export const ClosedRaffles = ({ fetchedData }: any): ReactElement => {
+export const ClosedRaffles = ({ fetchedData }): ReactElement => {
   const filteredData = fetchedData.filter((item) => item.is_closed === true);
   const data = useMemo(() => filteredData, []);
   const columns = useMemo(() => tableColumns, []);

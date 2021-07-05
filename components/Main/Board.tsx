@@ -8,7 +8,9 @@ import { WinnerRaffles } from '../Board/WinnerRaffles';
 import { ClosedRaffles } from '../Board/ClosedRaffles';
 
 export function Board(): ReactElement {
-  const { data } = useRaffles(10);
+  const { data } = useRaffles();
+  console.log(typeof data);
+  console.log('data', data);
   const { data: winnerData } = useWinnerRaffles();
 
   return (

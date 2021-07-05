@@ -9,11 +9,12 @@ export function Account(): ReactElement {
   const queryClient = useQueryClient();
   const [paymentAddress, setPaymentAddress] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const { data, mutate, isLoading, isError, error } = useMutation(joinRaffles, {
+  const { mutate, isError } = useMutation(joinRaffles, {
     onSuccess: () => {
-      // Very good success
+      // Very good success could add a notification
       setConfirmOpen(false);
     },
+    // need to be typed
     onError: (error: any) => {
       // An error happened!
       setErrorMessage(error.response.data);
@@ -32,6 +33,9 @@ export function Account(): ReactElement {
 
   return (
     <div className="flex jusitfy-between text-xs items-center">
+      {
+        // get variables from constant
+      }
       <div className="mr-10">User Info</div>
       <div>
         <button
@@ -40,6 +44,9 @@ export function Account(): ReactElement {
           className="uppercase p-2 px-4 bg-gradient-to-r from-blue-primary to-purple-primary rounded-2xl font-semibold cursor-pointer"
           onClick={() => setConfirmOpen(true)}
         >
+          {
+            // get variables from constant
+          }
           Join Raffle
         </button>
         <ConfirmDialog
@@ -48,7 +55,10 @@ export function Account(): ReactElement {
           onClose={() => setConfirmOpen(false)}
           onConfirm={joinRaffle}
         >
-          {error && <p className="p-4 my-4 bg-red-400 rounded-l rounded-r">{errorMessage}</p>}
+          {isError && <p className="p-4 my-4 bg-red-400 rounded-l rounded-r">{errorMessage}</p>}
+          {
+            // get variables from constant
+          }
           <h2 className="pb-4 text-gray-base">Post your payment address below</h2>
           <input
             value={paymentAddress}

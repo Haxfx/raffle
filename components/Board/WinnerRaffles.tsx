@@ -2,7 +2,6 @@
 import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
 import { useTable } from 'react-table';
 import { VscChevronUp } from 'react-icons/vsc';
-import ReactHtmlParser from 'react-html-parser';
 
 import { RAFFLES } from '../../constants/context';
 import winnersColumns from '../../fixtures/winnerscolums.json';

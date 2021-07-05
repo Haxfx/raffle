@@ -33,7 +33,7 @@ export const Truncate = ({
   </ShowMoreText>
 );
 
-export const truncate = (str, len) => {
+export const truncate = (str: string, len: number) => {
   if (str.length > len) {
     if (len <= 3) {
       return `${str.slice(0, len - 3)}...`;
