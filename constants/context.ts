@@ -54,3 +54,11 @@ export const FOOTER = {
   LINK: 'Easy1 Stakepool',
   CREDITS: 'Build by Gio & Seb',
 };
+
+export const DIALOG = {
+  TITLE: 'Join Raffle',
+  CANCEL: 'Cancel',
+  JOIN: 'Join',
+  CONFIRM: 'Send',
+  POST_MESSAGE: 'Post your payment address below',
+};

@@ -2,8 +2,9 @@ import { ReactElement, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { RiUserLine } from 'react-icons/ri';
 
-import ConfirmDialog from '../Dialog/ConfirmDialog';
+import { ConfirmDialog } from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
+import { DIALOG } from '../../constants/context';
 
 export function Account(): ReactElement {
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -34,9 +35,6 @@ export function Account(): ReactElement {
 
   return (
     <div className="flex jusitfy-between text-xs items-center">
-      {
-        // get variables from constant
-      }
       <div className="lg:mr-10 lg:static hidden">
         <RiUserLine className="h-6 w-6 hover:text-blue-primary cursor-pointer" />
       </div>
@@ -47,10 +45,7 @@ export function Account(): ReactElement {
           className="uppercase p-2 px-4 bg-gradient-to-r from-blue-primary to-purple-primary rounded-2xl font-semibold cursor-pointer"
           onClick={() => setConfirmOpen(true)}
         >
-          {
-            // get variables from constant
-          }
-          Join Raffle
+          {DIALOG.TITLE}
         </button>
         <ConfirmDialog
           title="Join Raffle"
@@ -59,10 +54,7 @@ export function Account(): ReactElement {
           onConfirm={joinRaffle}
         >
           {isError && <p className="p-4 my-4 bg-red-400 rounded-l rounded-r">{errorMessage}</p>}
-          {
-            // get variables from constant
-          }
-          <h2 className="pb-4 text-gray-base">Post your payment address below</h2>
+          <h2 className="pb-4 text-gray-base">{DIALOG.POST_MESSAGE}</h2>
           <input
             value={paymentAddress}
             onChange={({ target: { value } }) => setPaymentAddress(value)}

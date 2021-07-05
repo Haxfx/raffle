@@ -1,5 +1,7 @@
+import { FC } from 'react';
+import { DIALOG } from '../../constants/context';
 import Button from '../Buttons/Button';
-import Dialog from './Dialog';
+import { Dialog } from './Dialog';
 
 interface Props {
   title: string;
@@ -8,7 +10,7 @@ interface Props {
   onClose: () => void;
   onConfirm: () => void;
 }
-export default function Confirm(props: Props) {
+export const ConfirmDialog: FC<Props> = (props) => {
   const { open, onClose, title, children, onConfirm } = props;
   if (!open) {
     return <></>;
@@ -21,7 +23,7 @@ export default function Confirm(props: Props) {
       <div className="flex justify-between">
         <div className="py-1">
           <Button onClick={() => onClose()} className="bg-gray-base hover:bg-secondary-light">
-            Cancel
+            {DIALOG.CANCEL}
           </Button>
         </div>
         <div className="py-1">
@@ -31,10 +33,10 @@ export default function Confirm(props: Props) {
               onConfirm();
             }}
           >
-            Join
+            {DIALOG.JOIN}
           </Button>
         </div>
       </div>
     </Dialog>
   );
-}
+};

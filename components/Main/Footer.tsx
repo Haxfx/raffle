@@ -20,20 +20,20 @@ export function Footer(): ReactElement {
         </div>
         <div className="flex lg:justify-self-end justify-between lg:m-0 mt-2 lg:w-auto w-5/6 self-center">
           <a href="/">
-            <VscGithubAlt className="w-10 h-10 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <VscGithubAlt className="lg:w-8 lg:h-8 w-10 h-10 bg-purple-medium text-purple-light p-1.5 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://t.me/EASY1StakePoolRaffles" target="_blank" rel="noreferrer">
-            <FaTelegramPlane className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTelegramPlane className="lg:w-8 lg:h-8 w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a href="https://twitter.com/CryptoJoe101" target="_blank" rel="noreferrer">
-            <FaTwitter className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaTwitter className="lg:w-8 lg:h-8 w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
           <a
             href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"
             target="_blank"
             rel="noreferrer"
           >
-            <FaLink className="w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
+            <FaLink className="lg:w-8 lg:h-8 w-10 h-10 bg-purple-medium text-purple-light p-2 rounded-full ml-2 hover:bg-purple-primary hover:text-white" />
           </a>
         </div>
       </div>
