@@ -51,15 +51,28 @@ const Index = (): ReactElement => {
               variants={fadeInUp}
               className="grid lg:grid-cols-4 lg:gap-6 grid-cols-2 gap-4"
             >
+              {/* Temporary solution till api is finished */}
               {data &&
-                CARDS.CARDS.map((CARD, key) => (
-                  <Card
-                    key={key}
-                    title={CARD.NAME}
-                    value={data[CARD.KEY]}
-                    currency={CARD.CURRENCY}
-                  />
-                ))}
+                CARDS.CARDS.map((CARD, key) => {
+                  let cardValue = data[CARD.KEY];
+                  let cardCurrency = CARD.CURRENCY;
+                  let cardSymbol = CARD.SYMBOL;
+                  if (CARD.KEY === 'raffles_jackpot_total') {
+                    cardValue = data[CARD.KEY][0].amount;
+                    cardCurrency = data[CARD.KEY][0].currency.type;
+                    cardSymbol = data[CARD.KEY][0].currency.symbol;
+                    console.log(cardSymbol);
+                  }
+                  return (
+                    <Card
+                      key={key}
+                      title={CARD.NAME}
+                      value={cardValue}
+                      currency={cardCurrency}
+                      symbol={cardSymbol}
+                    />
+                  );
+                })}
             </motion.div>
             <motion.div variants={fadeInUp} className="grid grid-cols-1 gap-4">
               <Board />

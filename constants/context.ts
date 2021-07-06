@@ -11,10 +11,28 @@ export const PAGE = {
 
 export const CARDS = {
   CARDS: [
-    { NAME: 'Jackpot', VALUE: '0,02', CURRENCY: 'ADA', KEY: '' },
-    { NAME: 'Participants', VALUE: '8', CURRENCY: '', KEY: 'raffles_participants_total' },
-    { NAME: 'Total Raffles', VALUE: '4', CURRENCY: 'raffles', KEY: 'raffles_num_total' },
-    { NAME: 'Total won', VALUE: '450', CURRENCY: '$', KEY: 'raffles_prize_total' },
+    {
+      NAME: 'Jackpot',
+      VALUE: '0,02',
+      CURRENCY: 'ADA',
+      SYMBOL: 'ADA',
+      KEY: 'raffles_jackpot_total',
+    },
+    {
+      NAME: 'Participants',
+      VALUE: '8',
+      CURRENCY: '',
+      SYMBOL: 'users',
+      KEY: 'raffles_participants_total',
+    },
+    {
+      NAME: 'Total Raffles',
+      VALUE: '4',
+      CURRENCY: 'raffles',
+      SYMBOL: 'raffles',
+      KEY: 'raffles_num_total',
+    },
+    { NAME: 'Total won', VALUE: '450', CURRENCY: '$', SYMBOL: 'ADA', KEY: 'raffles_prize_total' },
   ],
 };
 
