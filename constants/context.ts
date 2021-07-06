@@ -20,10 +20,11 @@ export const CARDS = {
 
 export const BOARD = {
   TABS: [
-    { NAME: 'Transactions' },
-    { NAME: 'My tickets' },
-    { NAME: 'Referral program' },
-    { NAME: 'Operator panel' },
+    { NAME: 'Overview' },
+    // { NAME: 'Transactions' },
+    // { NAME: 'My tickets' },
+    // { NAME: 'Referral program' },
+    // { NAME: 'Operator panel' },
   ],
 };
 export const DRAWS = {

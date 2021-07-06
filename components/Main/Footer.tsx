@@ -7,7 +7,7 @@ import { FOOTER } from '../../constants/context';
 export function Footer(): ReactElement {
   return (
     <div className="w-full bg-purple-dark border-t border-opacity-80 border-purple-medium justify-center lg:sticky static bottom-0">
-      <div className="lg:grid lg:grid-cols-footer flex flex-col w-5/6 p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">
+      <div className="lg:grid lg:grid-cols-footer flex flex-col w-5/6 lg:max-w-screen-lg p-3 py-5 m-auto border-b border-opacity-80 border-purple-medium">
         <span className="justify-self-start self-center uppercase font-semibold mt-1 lg:block hidden">
           {FOOTER.TITLE}
         </span>
@@ -37,7 +37,7 @@ export function Footer(): ReactElement {
           </a>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-2 justify-items-stretch justify-between w-5/6 p-3 m-auto text-xs text-purple-light">
+      <div className="grid lg:grid-cols-3 grid-cols-2 justify-items-stretch justify-between w-5/6 lg:max-w-screen-lg p-3 m-auto text-xs text-purple-light">
         <span className="hover:text-blue-primary cursor-pointer">{FOOTER.COPYRIGHT}</span>
         <a
           href="https://pooltool.io/pool/20df8645abddf09403ba2656cda7da2cd163973a5e439c6e43dcbea9/epochs"

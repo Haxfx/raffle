@@ -16,13 +16,15 @@ const Index = (): ReactElement => {
   const { fadeInUp } = useMotion();
   const { data } = useRafflesStats();
 
+  console.log('data', data);
+
   return (
     <div className="grid items-center w-full items-center relative">
       <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
         <motion.div
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
-          className="lg:w-5/6 lg:static sticky justify-around m-auto top-0 lg:bg-transparent lg:border-none bg-blue-background border-b border-gray-base"
+          className="lg:w-5/6 lg:max-w-screen-lg lg:static sticky justify-around m-auto top-0 lg:bg-transparent lg:border-none bg-blue-background border-b border-gray-base"
         >
           {/* <Menu /> */}
           <div className="flex justify-between p-4">
@@ -33,9 +35,10 @@ const Index = (): ReactElement => {
         <div className="grid grid-cols-1 gap-5 justify-around p-4">
           <motion.div
             variants={fadeInUp}
-            className="grid grid-cols-1 gap-5 justify-around lg:w-5/6 w-full m-auto"
+            className="grid grid-cols-1 gap-5 justify-around lg:w-5/6 lg:max-w-screen-lg w-full m-auto"
           >
-            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+            {/* Hidden breadcrum cause unused */}
+            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} className="hidden">
               <span className="flex text-xs text-purple-light uppercase">
                 <ChevronLeftIcon className="w-4 h-4" />
                 {PAGE.BREADCRUM}
