@@ -57,7 +57,7 @@ const Index = (): ReactElement => {
                   let cardValue = data[CARD.KEY];
                   let cardCurrency = CARD.CURRENCY;
                   let cardSymbol = CARD.SYMBOL;
-                  if (CARD.KEY === 'raffles_jackpot_total') {
+                  if (CARD.KEY === 'jackpot' || CARD.KEY === 'raffles_jackpot_total') {
                     cardValue = data[CARD.KEY][0].amount;
                     cardCurrency = data[CARD.KEY][0].currency.type;
                     cardSymbol = data[CARD.KEY][0].currency.symbol;
