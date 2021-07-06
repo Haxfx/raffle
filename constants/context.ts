@@ -37,7 +37,7 @@ export const CARDS = {
       VALUE: '450',
       CURRENCY: 'ADA',
       SYMBOL: 'ADA',
-      KEY: 'raffles_jackpot_total'
+      KEY: 'raffles_jackpot_total',
     },
   ],
 };
