@@ -27,7 +27,7 @@ const Index = (): ReactElement => {
           className="lg:w-5/6 lg:max-w-screen-lg lg:static sticky justify-around m-auto top-0 lg:bg-transparent lg:border-none bg-blue-background border-b border-gray-base"
         >
           {/* <Menu /> */}
-          <div className="flex justify-between p-4">
+          <div className="flex justify-between py-4">
             <Hamburger />
             <Account />
           </div>
