@@ -16,7 +16,7 @@ export const CARDS = {
       VALUE: '0,02',
       CURRENCY: 'ADA',
       SYMBOL: 'ADA',
-      KEY: 'raffles_jackpot_total',
+      KEY: 'jackpot',
     },
     {
       NAME: 'Participants',
@@ -32,7 +32,13 @@ export const CARDS = {
       SYMBOL: 'raffles',
       KEY: 'raffles_num_total',
     },
-    { NAME: 'Total won', VALUE: '450', CURRENCY: '$', SYMBOL: 'ADA', KEY: 'raffles_prize_total' },
+    {
+      NAME: 'Total won',
+      VALUE: '450',
+      CURRENCY: 'ADA',
+      SYMBOL: 'ADA',
+      KEY: 'raffles_jackpot_total'
+    },
   ],
 };
 
