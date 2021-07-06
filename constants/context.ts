@@ -28,7 +28,7 @@ export const CARDS = {
     {
       NAME: 'Total Raffles',
       VALUE: '4',
-      CURRENCY: 'raffles',
+      CURRENCY: '',
       SYMBOL: 'raffles',
       KEY: 'raffles_num_total',
     },
