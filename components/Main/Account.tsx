@@ -1,10 +1,11 @@
 import { ReactElement, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { RiUserLine } from 'react-icons/ri';
+import { GiShare } from 'react-icons/gi';
 
 import { ConfirmDialog } from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
-import { DIALOG } from '../../constants/context';
+import { DIALOG, ACCOUNT } from '../../constants/context';
 import { useToaster } from '../../hooks/useToaster';
 
 export function Account(): ReactElement {
@@ -16,7 +17,10 @@ export function Account(): ReactElement {
   const { mutate, isError } = useMutation(joinRaffles, {
     onSuccess: () => {
       setConfirmOpen(false);
-      addToaster({ type: 'success', text: 'Goodluck, you have joined the raffle' });
+      addToaster({
+        type: 'success',
+        text: 'Goodluck, you have joined the raffle',
+      });
     },
     // need to be typed
     onError: (error: any) => {
@@ -41,11 +45,21 @@ export function Account(): ReactElement {
       <div className="lg:mr-10 lg:static hidden">
         <RiUserLine className="h-6 w-6 hover:text-blue-primary cursor-pointer" />
       </div>
-      <div>
+      <div className="flex">
+        <a
+          type="button"
+          target="_blank"
+          href="http://twitter.com/share?text=I participated in the @EASY1Raffles available for delegators, are you joining too? %0a%0aDelegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated."
+          className="flex uppercase p-2 px-4 bg-gradient-to-r mr-4 from-blue-primary to-purple-primary rounded-2xl font-semibold justify-center items-center cursor-pointer"
+          rel="noreferrer"
+        >
+          {ACCOUNT.SHARE}
+          <GiShare className="h-6 w-6 ml-2 cursor-pointer" />
+        </a>
         <button
           type="button"
           aria-label="join_raffle"
-          className="uppercase p-2 px-4 bg-gradient-to-r from-blue-primary to-purple-primary rounded-2xl font-semibold cursor-pointer"
+          className="uppercase p-2 px-4 bg-gradient-to-r from-purple-primary to-blue-primary rounded-2xl font-semibold cursor-pointer"
           onClick={() => setConfirmOpen(true)}
         >
           {DIALOG.TITLE}

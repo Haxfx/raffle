@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import { useRaffles, useWinnerRaffles } from '../../hooks/useRaffles';
+import { useRaffles, useRafflesStats, useWinnerRaffles } from '../../hooks/useRaffles';
 import { TabMenu } from '../Menu/TabMenu';
 import { Epoch, Tickets } from '../Board';
 import { OpenRaffles } from '../Board/OpenRaffles';
@@ -10,7 +10,13 @@ import { ClosedRaffles } from '../Board/ClosedRaffles';
 export function Board(): ReactElement {
   const { data } = useRaffles();
   const { data: winnerData } = useWinnerRaffles();
+  const { data: raffleData } = useRafflesStats();
   const [currentEpoch, setCurrentEpoch] = useState<number>(274);
+  const [jackpot, setJackpot] = useState<string>('');
+
+  useEffect(() => {
+    if (raffleData) setJackpot(raffleData.jackpot[0].amount);
+  }, [raffleData]);
 
   useEffect(() => {
     if (data) setCurrentEpoch(data[0].epoch);
@@ -20,7 +26,7 @@ export function Board(): ReactElement {
     <div className="bg-blue-backgroundLight">
       <TabMenu />
       <Epoch epoch={currentEpoch} />
-      {winnerData && <Tickets fetchedData={winnerData} />}
+      {winnerData && <Tickets fetchedData={winnerData} jackpot={jackpot} />}
       {data && <OpenRaffles fetchedData={data} />}
       {winnerData && <WinnerRaffles fetchedData={winnerData} />}
       {data && <ClosedRaffles fetchedData={data} />}

@@ -16,8 +16,6 @@ const Index = (): ReactElement => {
   const { fadeInUp } = useMotion();
   const { data } = useRafflesStats();
 
-  console.log('data', data);
-
   return (
     <div className="grid items-center w-full items-center relative">
       <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
@@ -27,7 +25,7 @@ const Index = (): ReactElement => {
           className="lg:w-5/6 lg:max-w-screen-lg lg:static sticky justify-around m-auto top-0 lg:bg-transparent lg:border-none bg-blue-background border-b border-gray-base"
         >
           {/* <Menu /> */}
-          <div className="flex justify-between p-4">
+          <div className="flex justify-between py-4">
             <Hamburger />
             <Account />
           </div>
@@ -61,7 +59,6 @@ const Index = (): ReactElement => {
                     cardValue = data[CARD.KEY][0].amount;
                     cardCurrency = data[CARD.KEY][0].currency.type;
                     cardSymbol = data[CARD.KEY][0].currency.symbol;
-                    console.log(cardSymbol);
                   }
                   return (
                     <Card

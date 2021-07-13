@@ -37,7 +37,7 @@ export const CARDS = {
       VALUE: '450',
       CURRENCY: 'ADA',
       SYMBOL: 'ADA',
-      KEY: 'raffles_jackpot_total'
+      KEY: 'raffles_jackpot_total',
     },
   ],
 };
@@ -52,7 +52,7 @@ export const BOARD = {
   ],
 };
 export const DRAWS = {
-  TITLE: 'Last Wins',
+  TITLE: 'Recent Wins',
   ROUNDS: 'Epoch',
   TOTAL_ROUNDS: '274',
 };
@@ -78,6 +78,10 @@ export const FOOTER = {
   COPYRIGHT: '© Easy1Raffle, 2021',
   LINK: 'Easy1 Stakepool',
   CREDITS: 'Build by Gio & Seb',
+};
+
+export const ACCOUNT = {
+  SHARE: 'Share',
 };
 
 export const DIALOG = {
