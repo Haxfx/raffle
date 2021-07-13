@@ -80,6 +80,10 @@ export const FOOTER = {
   CREDITS: 'Build by Gio & Seb',
 };
 
+export const ACCOUNT = {
+  SHARE: 'Share',
+};
+
 export const DIALOG = {
   TITLE: 'Join Raffle',
   CANCEL: 'Cancel',
