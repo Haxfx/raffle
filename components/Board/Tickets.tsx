@@ -13,7 +13,7 @@ interface ITicket {
 }
 
 const makeTwitterLink = (prize, jackpot) =>
-  `http://twitter.com/share?text=I just won ${prize} $ada by participating to @EASY1Raffles %0a%0aDo you want to participate too? Delegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aCurrent Jackpot is ${jackpot} $ada %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated.`;
+  `http://twitter.com/share?text=I just won ${prize} $ada by participating in @EASY1Raffles %0a%0aDo you want to participate too? Delegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aThe current jackpot is ${jackpot} $ada %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated.`;
 
 const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
   <div className="flex relative flex-col w-full border-solid border-2 border-purple-light border-opacity-30 p-3 h-28 items-between justify-between">
