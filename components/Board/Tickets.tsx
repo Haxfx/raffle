@@ -8,9 +8,14 @@ interface ITicket {
   winner: string;
   nr: number;
   tx?: string;
+  prize: number;
+  jackpot: number;
 }
 
-const Ticket = ({ winner, nr, tx }: ITicket) => (
+const makeTwitterLink = (prize, jackpot) =>
+  `http://twitter.com/share?text=I just won ${prize} $ada by participating to @EASY1Raffles %0a%0aDo you want to participate too? Delegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aCurrent Jackpot is ${jackpot} $ada %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated.&url=https://raffles.easystaking.online/`;
+
+const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
   <div className="flex relative flex-col w-full border-solid border-2 border-purple-light border-opacity-30 p-3 h-28 items-between justify-between">
     <div className="justify-self-center text-purple-light">
       <span className="lg:inline hidden">{TICKETS.NAME}</span> <span>#{nr}</span>
@@ -29,7 +34,7 @@ const Ticket = ({ winner, nr, tx }: ITicket) => (
     <a
       type="button"
       target="_blank"
-      href="http://twitter.com/share?text=I just won on EASY1 Raffles! Also want to participate? Delegate to Cardano Stakepool: EASY1.&url=https://raffles.easystaking.online/"
+      href={makeTwitterLink(prize, jackpot)}
       className="absolute mr-2 right-0 text-white-primary hover:text-blue-primary"
       rel="noreferrer"
     >
@@ -38,10 +43,17 @@ const Ticket = ({ winner, nr, tx }: ITicket) => (
   </div>
 );
 
-export const Tickets = ({ fetchedData }): ReactElement => (
+export const Tickets = ({ fetchedData, jackpot }): ReactElement => (
   <div className="w-full grid lg:grid-cols-4 grid-cols-2 gap-5 p-5">
     {fetchedData.slice(0, 4).map((t, k) => (
-      <Ticket key={k} winner={t.stake_id} nr={t.epoch} tx={t.tx_id} />
+      <Ticket
+        key={k}
+        winner={t.stake_id}
+        nr={t.epoch}
+        prize={t.winning_amount}
+        tx={t.tx_id}
+        jackpot={jackpot}
+      />
     ))}
   </div>
 );

@@ -13,7 +13,7 @@ const joinRaffles = async (addr: IPayment): Promise<boolean | string> => {
   return response.data;
 };
 
-const fetchRafflesStats = async (): Promise<boolean | string> => {
+const fetchRafflesStats = async (): Promise<boolean | string | any> => {
   const res = await fetch('https://lottery.easystaking.online/raffles/stats');
   const result = res.json();
   return result;
