@@ -49,7 +49,7 @@ export function Account(): ReactElement {
         <a
           type="button"
           target="_blank"
-          href="http://twitter.com/share?text=I participated in the EASY1 Raffles available for delegators, are you joining too? \n&url=https://raffles.easystaking.online/"
+          href="http://twitter.com/share?text=I participated in the EASY1 Raffles available for delegators, are you joining too?&url=https://raffles.easystaking.online/"
           className="flex uppercase p-2 px-4 bg-gradient-to-r mr-4 from-blue-primary to-purple-primary rounded-2xl font-semibold justify-center items-center cursor-pointer"
           rel="noreferrer"
         >
