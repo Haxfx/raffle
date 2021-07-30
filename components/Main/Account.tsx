@@ -12,6 +12,7 @@ export function Account(): ReactElement {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const queryClient = useQueryClient();
   const [paymentAddress, setPaymentAddress] = useState('');
+  const [friendlyName, setFriendlyName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const { addToaster } = useToaster();
   const { mutate, isError } = useMutation(joinRaffles, {
@@ -34,10 +35,9 @@ export function Account(): ReactElement {
   });
 
   function joinRaffle() {
-    const paymentAddr = {
-      payment_address: paymentAddress,
-    };
-    mutate(paymentAddr);
+    const raffleDetails = { friendly_name: friendlyName, payment_address: paymentAddress };
+
+    mutate(raffleDetails);
   }
 
   return (
@@ -76,7 +76,15 @@ export function Account(): ReactElement {
             value={paymentAddress}
             onChange={({ target: { value } }) => setPaymentAddress(value)}
             type="text"
+            placeholder="addr"
             className="p-3 w-full rounded-l rounded-r text-gray-base focus:outline-none focus:ring-2 focus:ring-purple-primary focus:border-transparent"
+          />
+          <input
+            value={friendlyName}
+            onChange={({ target: { value } }) => setFriendlyName(value)}
+            type="text"
+            placeholder="Optional: name"
+            className="p-3 w-full mt-5 rounded-l rounded-r text-gray-base focus:outline-none focus:ring-2 focus:ring-purple-primary focus:border-transparent"
           />
         </ConfirmDialog>
       </div>

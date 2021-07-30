@@ -1,4 +1,9 @@
+/* eslint-disable camelcase */
 export interface IPayment {
-  // eslint-disable-next-line camelcase
   payment_address: string;
+}
+
+export interface IRaffleDetails {
+  payment_address: string;
+  friendly_name?: string;
 }

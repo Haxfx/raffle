@@ -8,6 +8,10 @@
     "accessor": "stake_id"
   },
   {
+    "Header": "Name",
+    "accessor": "user_friendly_name"
+  },
+  {
     "Header": "Prize",
     "accessor": "winning_amount"
   },

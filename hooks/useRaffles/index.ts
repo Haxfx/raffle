@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
-import { IPayment } from '../interfaces';
+import { IRaffleDetails } from '../interfaces';
 
 const fetchRaffles = async (limit = <number>10): Promise<boolean | string> => {
   const res = await fetch('https://lottery.easystaking.online/raffles');
@@ -8,8 +8,11 @@ const fetchRaffles = async (limit = <number>10): Promise<boolean | string> => {
   return result;
 };
 
-const joinRaffles = async (addr: IPayment): Promise<boolean | string> => {
-  const { data: response } = await axios.post('https://lottery.easystaking.online/raffles', addr);
+const joinRaffles = async (raffleDetails: IRaffleDetails): Promise<boolean | string> => {
+  const { data: response } = await axios.post(
+    'https://lottery.easystaking.online/raffles',
+    raffleDetails
+  );
   return response.data;
 };
 
