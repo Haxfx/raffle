@@ -10,15 +10,15 @@ interface ITicket {
   nr: number;
   tx?: string;
   prize: number;
-  jackpot: number;
+  jackpot: string;
 }
 
 interface ITickets {
   fetchedData: IWinners[];
-  jackpot: number;
+  jackpot: string;
 }
 
-const makeTwitterLink = (prize: number, jackpot: number) =>
+const makeTwitterLink = (prize: number, jackpot: string) =>
   `http://twitter.com/share?text=I just won ${prize} $ada by participating in @EASY1Raffles %0a%0aDo you want to participate too? Delegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aThe current jackpot is ${jackpot} $ada %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated.`;
 
 const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
