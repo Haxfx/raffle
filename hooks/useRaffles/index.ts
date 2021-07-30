@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { IRaffleDetails } from '../interfaces';
 
-const fetchRaffles = async (limit = <number>10): Promise<boolean | string> => {
+const fetchRaffles = async (limit = <number>10): Promise<any> => {
   const res = await fetch('https://lottery.easystaking.online/raffles');
   const result = res.json();
   return result;
@@ -22,7 +22,7 @@ const fetchRafflesStats = async (): Promise<boolean | string | any> => {
   return result;
 };
 
-const fetchWinnerRaffles = async (): Promise<boolean | string> => {
+const fetchWinnerRaffles = async (): Promise<any> => {
   const res = await fetch('https://lottery.easystaking.online/winners');
   const result = res.json();
   return result;
