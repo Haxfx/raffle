@@ -109,6 +109,8 @@ export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement =>
                                   {truncate(cell.value, 5)}
                                 </a>
                               )) ||
+                                (cell.column.id === 'user_friendly_name' &&
+                                  truncate(cell.value, 5)) ||
                                 // Render the cell contents
                                 cell.render('Cell')}
                             </td>

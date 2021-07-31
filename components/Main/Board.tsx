@@ -7,6 +7,9 @@ import { OpenRaffles } from '../Board/OpenRaffles';
 import { WinnerRaffles } from '../Board/WinnerRaffles';
 import { ClosedRaffles } from '../Board/ClosedRaffles';
 
+/* Used for Local testing with Fixtures */
+// import winnerData from '../../fixtures/winners.json';
+
 export function Board(): ReactElement {
   const { data } = useRaffles();
   const { data: winnerData } = useWinnerRaffles();

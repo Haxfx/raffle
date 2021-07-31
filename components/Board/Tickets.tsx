@@ -36,7 +36,7 @@ const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
         className="text-blue-primary"
         rel="noreferrer"
       >
-        {truncate(winner, 13)}...
+        {winner.length > 13 ? `${truncate(winner, 13)}...` : winner}
       </a>
     </div>
     <a

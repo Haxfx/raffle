@@ -1,0 +1,53 @@
+[
+  {
+    "raffle_id": 22,
+    "stake_id": "stake1u8va7k",
+    "epoch": 280,
+    "winning_amount": 10,
+    "tx_id": "a37874784f02fb1bcb5a593b8c77648a478e37e7f7c3d8112643151e9495ab7f",
+    "user_friendly_name": "Billybotoinoi"
+  },
+  {
+    "raffle_id": 25,
+    "stake_id": "stake1u9ctwt",
+    "epoch": 280,
+    "winning_amount": 25,
+    "tx_id": "387fa5a9f1d86cd54155f0287c37d588abdd427ff9b99dd6a7d285ece8e83de5"
+  },
+  {
+    "raffle_id": 23,
+    "stake_id": "stake1u9sdpw",
+    "epoch": 280,
+    "winning_amount": 10,
+    "tx_id": "343ce2e6dba46d8b792400d02b788af99352f7703a40c4129b0f1df28bb2cd54"
+  },
+  {
+    "raffle_id": 18,
+    "stake_id": "stake1u9ntwq",
+    "epoch": 279,
+    "winning_amount": 10,
+    "tx_id": "65de2ee5571cbc380e329d64e5eddded54c97f5cc668669b7bff5bac59158be0"
+  },
+  {
+    "raffle_id": 19,
+    "stake_id": "stake1uxxzz0",
+    "epoch": 279,
+    "winning_amount": 10,
+    "tx_id": "a69b7db8ddc4ee38c4ed109706da0a2994a62591507957f6bc88dbf7ad3605da"
+  },
+  {
+    "raffle_id": 16,
+    "stake_id": "stake1u8k0kn",
+    "epoch": 278,
+    "winning_amount": 50,
+    "tx_id": "6f492dd830fa5a5feb209c24029d8418cc296cfe79e62c4d538ccb11f2b8d402"
+  },
+  {
+    "raffle_id": 14,
+    "stake_id": "stake1u9sdpw",
+    "epoch": 278,
+    "winning_amount": 10,
+    "tx_id": "d12dd317e82f78ec701315d0aac2f5865feebfd2c43420930259c4e009cd4a9c",
+    "user_friendly_name": "Frank"
+  }
+]
