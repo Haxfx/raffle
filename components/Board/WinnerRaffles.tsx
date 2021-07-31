@@ -6,8 +6,13 @@ import { VscChevronUp } from 'react-icons/vsc';
 import { RAFFLES } from '../../constants/context';
 import winnersColumns from '../../fixtures/winnerscolums.json';
 import { truncate } from '../../util/Truncate';
+import { IWinners } from '../../interfaces/Board';
 
-export const WinnerRaffles = ({ fetchedData }: any): ReactElement => {
+interface IWinnersRaffles {
+  fetchedData: IWinners[];
+}
+
+export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement => {
   const data = useMemo(() => fetchedData, []);
   const columns = useMemo(() => winnersColumns, []);
   const tableInstance = useTable({ columns, data });
@@ -104,6 +109,8 @@ export const WinnerRaffles = ({ fetchedData }: any): ReactElement => {
                                   {truncate(cell.value, 5)}
                                 </a>
                               )) ||
+                                (cell.column.id === 'user_friendly_name' &&
+                                  truncate(cell.value, 5)) ||
                                 // Render the cell contents
                                 cell.render('Cell')}
                             </td>

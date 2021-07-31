@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { GiShare } from 'react-icons/gi';
 
 import { TICKETS } from '../../constants/context';
+import { IWinners } from '../../interfaces/Board';
 import { truncate } from '../../util/Truncate';
 
 interface ITicket {
@@ -9,10 +10,15 @@ interface ITicket {
   nr: number;
   tx?: string;
   prize: number;
-  jackpot: number;
+  jackpot: string;
 }
 
-const makeTwitterLink = (prize, jackpot) =>
+interface ITickets {
+  fetchedData: IWinners[];
+  jackpot: string;
+}
+
+const makeTwitterLink = (prize: number, jackpot: string) =>
   `http://twitter.com/share?text=I just won ${prize} $ada by participating in @EASY1Raffles %0a%0aDo you want to participate too? Delegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aThe current jackpot is ${jackpot} $ada %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated.`;
 
 const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
@@ -21,14 +27,16 @@ const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
       <span className="lg:inline hidden">{TICKETS.NAME}</span> <span>#{nr}</span>
     </div>
     <div className="justify-self-center text-white flex flex-col">
-      <span>{TICKETS.WINNER}</span>
+      <span>
+        {prize} {TICKETS.WINNER}
+      </span>
       <a
         href={`https://cardanoscan.io/transaction/${tx}`}
         target="_blank"
         className="text-blue-primary"
         rel="noreferrer"
       >
-        {truncate(winner, 13)}...
+        {winner.length > 13 ? `${truncate(winner, 13)}...` : winner}
       </a>
     </div>
     <a
@@ -43,12 +51,12 @@ const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
   </div>
 );
 
-export const Tickets = ({ fetchedData, jackpot }): ReactElement => (
+export const Tickets = ({ fetchedData, jackpot }: ITickets): ReactElement => (
   <div className="w-full grid lg:grid-cols-4 grid-cols-2 gap-5 p-5">
     {fetchedData.slice(0, 4).map((t, k) => (
       <Ticket
         key={k}
-        winner={t.stake_id}
+        winner={t.user_friendly_name ? t.user_friendly_name : t.stake_id}
         nr={t.epoch}
         prize={t.winning_amount}
         tx={t.tx_id}
