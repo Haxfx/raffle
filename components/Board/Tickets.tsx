@@ -27,7 +27,9 @@ const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
       <span className="lg:inline hidden">{TICKETS.NAME}</span> <span>#{nr}</span>
     </div>
     <div className="justify-self-center text-white flex flex-col">
-      <span>{TICKETS.WINNER}</span>
+      <span>
+        {prize} {TICKETS.WINNER}
+      </span>
       <a
         href={`https://cardanoscan.io/transaction/${tx}`}
         target="_blank"

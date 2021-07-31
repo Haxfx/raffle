@@ -69,7 +69,7 @@ export const FAQ = {
 
 export const TICKETS = {
   NAME: 'Epoch',
-  WINNER: 'Winner',
+  WINNER: 'ADA Winner',
 };
 
 export const FOOTER = {
