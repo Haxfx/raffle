@@ -1,0 +1,18 @@
+[
+  {
+    "Header": "Epoch",
+    "accessor": "epoch"
+  },
+  {
+    "Header": "Prize Pool",
+    "accessor": "winning_amount"
+  },
+  {
+    "Header": "Won",
+    "accessor": "win"
+  },
+  {
+    "Header": "Tx",
+    "accessor": "tx_id"
+  }
+]

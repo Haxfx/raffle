@@ -17,6 +17,13 @@ export interface IWinners {
   tx_id: string;
 }
 
+export interface IMyRaffles {
+  epoch: number;
+  winning_amount: number;
+  tx_id: string;
+  win?: boolean;
+}
+
 export interface RaffleProps {
   fetchedData: IFetchedData[];
 }

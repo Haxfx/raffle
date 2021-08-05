@@ -4,17 +4,17 @@ import { useTable } from 'react-table';
 import { VscChevronUp } from 'react-icons/vsc';
 
 import { RAFFLES } from '../../constants/context';
-import winnersColumns from '../../fixtures/winnerscolums.json';
+import myRaffleColumns from '../../fixtures/myrafflecolumns.json';
 import { truncate } from '../../util/Truncate';
-import { IWinners } from '../../interfaces/Board';
+import { IMyRaffles } from '../../interfaces/Board';
 
-interface IMyRaffles {
-  fetchedData: IWinners[];
+interface IMyRafflesProps {
+  fetchedData: IMyRaffles[];
 }
 
-export const MyRaffles = ({ fetchedData }: IMyRaffles): ReactElement => {
+export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
   const data = useMemo(() => fetchedData, []);
-  const columns = useMemo(() => winnersColumns, []);
+  const columns = useMemo(() => myRaffleColumns, []);
   const tableInstance = useTable({ columns, data });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   const [active, setActive] = useState(false);
@@ -109,8 +109,12 @@ export const MyRaffles = ({ fetchedData }: IMyRaffles): ReactElement => {
                                   {truncate(cell.value, 5)}
                                 </a>
                               )) ||
-                                (cell.column.id === 'user_friendly_name' &&
-                                  truncate(cell.value, 5)) ||
+                                (cell.column.id === 'win' &&
+                                  (cell.value === true ? (
+                                    <span className="text-green-400">Win</span>
+                                  ) : (
+                                    <span className="text-orange-primary">-</span>
+                                  ))) ||
                                 // Render the cell contents
                                 cell.render('Cell')}
                             </td>

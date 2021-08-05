@@ -61,7 +61,7 @@ export const RAFFLES = {
   OPEN_TITLE: 'Open Raffles',
   CLOSED_TITLE: 'Closed Raffles',
   WINNER_TITLE: 'Winners',
-  MY_RAFFLES_TITLE: 'My Raffles',
+  MY_RAFFLES_TITLE: 'My Tickets',
 };
 
 export const FAQ = {
