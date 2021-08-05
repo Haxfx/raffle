@@ -40,7 +40,6 @@ const Ticket = ({ winner, nr, tx, prize, jackpot }: ITicket) => (
       </a>
     </div>
     <a
-      type="button"
       target="_blank"
       href={makeTwitterLink(prize, jackpot)}
       className="absolute mr-2 right-0 text-white-primary hover:text-blue-primary"

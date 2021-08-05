@@ -50,7 +50,6 @@ export function Account(): ReactElement {
       </div>
       <div className="flex">
         <a
-          type="button"
           target="_blank"
           href="http://twitter.com/share?text=I participated in the @EASY1Raffles available for delegators, are you joining too? %0a%0aDelegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated."
           className="flex uppercase p-2 px-4 bg-gradient-to-r mr-4 from-blue-primary to-purple-primary rounded-2xl font-semibold justify-center items-center cursor-pointer"
