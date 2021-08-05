@@ -1,38 +1,36 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 
-import { useRaffles, useRafflesStats, useWinnerRaffles } from '../../hooks/useRaffles';
+import { useRouter } from 'next/router';
 import { TabMenu } from '../Menu/TabMenu';
-import { Epoch, Tickets } from '../Board';
-import { OpenRaffles } from '../Board/OpenRaffles';
-import { WinnerRaffles } from '../Board/WinnerRaffles';
-import { ClosedRaffles } from '../Board/ClosedRaffles';
+import { Overview } from '../Board/Overview';
+import { MyTickets } from '../Board/MyTickets';
 
 /* Used for Local testing with Fixtures */
 // import winnerData from '../../fixtures/winners.json';
 
+const BoardTab = (): ReactElement => {
+  const router = useRouter();
+
+  if (router.route === '/') {
+    return <Overview />;
+  }
+
+  if (router.route === '/mytickets') {
+    return <MyTickets />;
+  }
+
+  return (
+    <div className="flex justify-between p-5">
+      <h1>Page not found</h1>
+    </div>
+  );
+};
+
 export function Board(): ReactElement {
-  const { data } = useRaffles();
-  const { data: winnerData } = useWinnerRaffles();
-  const { data: raffleData } = useRafflesStats();
-  const [currentEpoch, setCurrentEpoch] = useState<number>(274);
-  const [jackpot, setJackpot] = useState<string>('');
-
-  useEffect(() => {
-    if (raffleData) setJackpot(raffleData.jackpot[0].amount);
-  }, [raffleData]);
-
-  useEffect(() => {
-    if (data) setCurrentEpoch(data[0].epoch);
-  }, [data]);
-
   return (
     <div className="bg-blue-backgroundLight">
       <TabMenu />
-      <Epoch epoch={currentEpoch} />
-      {winnerData && <Tickets fetchedData={winnerData} jackpot={jackpot} />}
-      {data && <OpenRaffles fetchedData={data} />}
-      {winnerData && <WinnerRaffles fetchedData={winnerData} />}
-      {data && <ClosedRaffles fetchedData={data} />}
+      <BoardTab />
     </div>
   );
 }

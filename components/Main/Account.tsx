@@ -7,17 +7,20 @@ import { ConfirmDialog } from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
 import { DIALOG, ACCOUNT } from '../../constants/context';
 import { useToaster } from '../../hooks/useToaster';
+import { useStore } from '../../hooks/useStore';
 
 export function Account(): ReactElement {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const queryClient = useQueryClient();
-  const [paymentAddress, setPaymentAddress] = useState('');
-  const [friendlyName, setFriendlyName] = useState('');
+  const { store, setUser } = useStore();
+  const [paymentAddress, setPaymentAddress] = useState(store ? store.userAddress : '');
+  const [friendlyName, setFriendlyName] = useState(store ? store.userFriendlyName : '');
   const [errorMessage, setErrorMessage] = useState('');
   const { addToaster } = useToaster();
   const { mutate, isError } = useMutation(joinRaffles, {
     onSuccess: () => {
       setConfirmOpen(false);
+      setUser(paymentAddress, friendlyName);
       addToaster({
         type: 'success',
         text: 'Goodluck, you have joined the raffle',

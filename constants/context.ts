@@ -44,9 +44,9 @@ export const CARDS = {
 
 export const BOARD = {
   TABS: [
-    { NAME: 'Overview' },
+    { NAME: 'Overview', KEY: '/' },
+    { NAME: 'My tickets', KEY: '/mytickets' },
     // { NAME: 'Transactions' },
-    // { NAME: 'My tickets' },
     // { NAME: 'Referral program' },
     // { NAME: 'Operator panel' },
   ],
@@ -61,6 +61,7 @@ export const RAFFLES = {
   OPEN_TITLE: 'Open Raffles',
   CLOSED_TITLE: 'Closed Raffles',
   WINNER_TITLE: 'Winners',
+  MY_RAFFLES_TITLE: 'My Raffles',
 };
 
 export const FAQ = {
