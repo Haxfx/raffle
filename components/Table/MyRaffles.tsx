@@ -5,8 +5,9 @@ import { VscChevronUp } from 'react-icons/vsc';
 
 import { MYTICKETS } from '../../constants/context';
 import myRaffleColumns from '../../fixtures/myrafflecolumns.json';
-import { truncate } from '../../util/Truncate';
+import { truncate, truncateMiddle } from '../../util/Truncate';
 import { IMyRaffles } from '../../interfaces/Board';
+import { useStore } from '../../hooks/useStore';
 
 interface IMyRafflesProps {
   fetchedData: IMyRaffles[];
@@ -20,7 +21,7 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState('0px');
   const [transform, setTransform] = useState('transform duration-700 ease text-blue-primary');
-  console.log(fetchedData);
+  const { store } = useStore();
 
   const contentSpace = useRef(null);
 
@@ -53,6 +54,10 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
           <span className="p-5">{MYTICKETS.TITLE}</span>
           <VscChevronUp className={`${transform} inline-block h-6 w-6 mr-5`} />
         </button>
+        <div className="ml-5 text-sm">
+          {MYTICKETS.ADDRESS}
+          {truncateMiddle(store.userAddress, 10, 5)}
+        </div>
         <div
           ref={contentSpace}
           style={{ maxHeight: `${height}` }}

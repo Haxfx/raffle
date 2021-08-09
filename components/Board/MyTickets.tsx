@@ -32,7 +32,7 @@ export const MyTickets = (): ReactElement => {
         <>
           <MyRaffles fetchedData={myRafflesData} />
           <ResetAddress resetUserConfirmation={resetUserConfirmation} />
-          <Seperator />
+          <Seperator size="20" />
           <ReminderJoin epoch={store.currentEpoch} />
         </>
       )}

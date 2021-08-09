@@ -99,4 +99,5 @@ export const MYTICKETS = {
   CONFIRM: 'SEARCH',
   NO_SET_ADDRESS: 'No Address found!',
   NOT_YOURS: 'Not your address?',
+  ADDRESS: 'Address: ',
 };
