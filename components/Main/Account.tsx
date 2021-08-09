@@ -7,20 +7,23 @@ import { ConfirmDialog } from '../Dialog/ConfirmDialog';
 import { joinRaffles } from '../../hooks';
 import { DIALOG, ACCOUNT } from '../../constants/context';
 import { useToaster } from '../../hooks/useToaster';
+import { useStore } from '../../hooks/useStore';
 
 export function Account(): ReactElement {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const queryClient = useQueryClient();
-  const [paymentAddress, setPaymentAddress] = useState('');
-  const [friendlyName, setFriendlyName] = useState('');
+  const { store, setUser } = useStore();
+  const [paymentAddress, setPaymentAddress] = useState(store ? store.userAddress : '');
+  const [friendlyName, setFriendlyName] = useState(store ? store.userFriendlyName : '');
   const [errorMessage, setErrorMessage] = useState('');
   const { addToaster } = useToaster();
   const { mutate, isError } = useMutation(joinRaffles, {
     onSuccess: () => {
       setConfirmOpen(false);
+      setUser(paymentAddress, friendlyName);
       addToaster({
         type: 'success',
-        text: 'Goodluck, you have joined the raffle',
+        text: DIALOG.CONFIRM_MESSAGE,
       });
     },
     // need to be typed
@@ -47,7 +50,6 @@ export function Account(): ReactElement {
       </div>
       <div className="flex">
         <a
-          type="button"
           target="_blank"
           href="http://twitter.com/share?text=I participated in the @EASY1Raffles available for delegators, are you joining too? %0a%0aDelegate to the Cardano Stake Pool EASY1 and join open raffles here: https://raffles.easystaking.online/ %0a%0aJoin https://t.me/EASY1StakePoolRaffles to stay always updated."
           className="flex uppercase p-2 px-4 bg-gradient-to-r mr-4 from-blue-primary to-purple-primary rounded-2xl font-semibold justify-center items-center cursor-pointer"

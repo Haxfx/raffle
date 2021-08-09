@@ -46,3 +46,11 @@ export const truncate = (str: string, len: number) => {
 
   return str;
 };
+
+export const truncateMiddle = (str: string, len: number, last: number) => {
+  const srt = truncate(str, len);
+
+  const newString = srt + str.substring(str.length - last, str.length);
+
+  return newString;
+};

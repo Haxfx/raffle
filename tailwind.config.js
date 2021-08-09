@@ -33,6 +33,10 @@ module.exports = {
           to: { transform: 'rotate(-360deg)' },
         },
       },
+      borderWidth: {
+        24: '24px',
+        20: '20px',
+      },
       colors: {
         white: '#e8e9f1',
         blue: {

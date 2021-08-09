@@ -44,9 +44,9 @@ export const CARDS = {
 
 export const BOARD = {
   TABS: [
-    { NAME: 'Overview' },
+    { NAME: 'Overview', KEY: '/' },
+    { NAME: 'My tickets', KEY: '/mytickets' },
     // { NAME: 'Transactions' },
-    // { NAME: 'My tickets' },
     // { NAME: 'Referral program' },
     // { NAME: 'Operator panel' },
   ],
@@ -90,4 +90,14 @@ export const DIALOG = {
   JOIN: 'Join',
   CONFIRM: 'Send',
   POST_MESSAGE: 'Post your payment address below',
+  CONFIRM_MESSAGE: 'Goodluck, you have joined the raffle',
+};
+
+export const MYTICKETS = {
+  TITLE: 'My Tickets',
+  POST_MESSAGE: 'Enter a valid payment address below',
+  CONFIRM: 'SEARCH',
+  NO_SET_ADDRESS: 'No Address found!',
+  NOT_YOURS: 'Not your address?',
+  ADDRESS: 'Address: ',
 };
