@@ -23,7 +23,7 @@ export function Account(): ReactElement {
       setUser(paymentAddress, friendlyName);
       addToaster({
         type: 'success',
-        text: 'Goodluck, you have joined the raffle',
+        text: DIALOG.CONFIRM_MESSAGE,
       });
     },
     // need to be typed

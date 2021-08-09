@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { useRouter } from 'next/router';
 import { BOARD } from '../../constants/context';
+import { Line } from '../Random/Line';
 
 type Props = {
   title: string;
@@ -28,10 +29,6 @@ const TabItem = ({ title, children, href, active }: Props): ReactElement => {
     </a>
   );
 };
-
-const Line = () => (
-  <div className="absolute w-full h-0.5 bg-opacity-20 bg-purple-light mt-14 z-1 mr-4 " />
-);
 
 export function TabMenu(): ReactElement {
   const router = useRouter();

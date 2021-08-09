@@ -61,7 +61,6 @@ export const RAFFLES = {
   OPEN_TITLE: 'Open Raffles',
   CLOSED_TITLE: 'Closed Raffles',
   WINNER_TITLE: 'Winners',
-  MY_RAFFLES_TITLE: 'My Tickets',
 };
 
 export const FAQ = {
@@ -91,4 +90,13 @@ export const DIALOG = {
   JOIN: 'Join',
   CONFIRM: 'Send',
   POST_MESSAGE: 'Post your payment address below',
+  CONFIRM_MESSAGE: 'Goodluck, you have joined the raffle',
+};
+
+export const MYTICKETS = {
+  TITLE: 'My Tickets',
+  POST_MESSAGE: 'Enter a valid payment address below',
+  CONFIRM: 'SEARCH',
+  NO_SET_ADDRESS: 'No Address found!',
+  NOT_YOURS: 'Not your address?',
 };

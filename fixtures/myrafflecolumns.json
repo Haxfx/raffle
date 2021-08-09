@@ -5,14 +5,18 @@
   },
   {
     "Header": "Prize Pool",
-    "accessor": "winning_amount"
+    "accessor": "prize"
   },
   {
     "Header": "Won",
-    "accessor": "win"
+    "accessor": "won"
   },
   {
     "Header": "Tx",
     "accessor": "tx_id"
+  },
+  {
+    "Header": "Closed",
+    "accessor": "is_closed"
   }
 ]

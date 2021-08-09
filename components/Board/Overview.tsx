@@ -2,9 +2,10 @@ import { ReactElement, useEffect, useState } from 'react';
 
 import { useRaffles, useRafflesStats, useWinnerRaffles } from '../../hooks/useRaffles';
 import { Epoch, Tickets } from '.';
-import { OpenRaffles } from './OpenRaffles';
-import { WinnerRaffles } from './WinnerRaffles';
-import { ClosedRaffles } from './ClosedRaffles';
+import { OpenRaffles } from '../Table/OpenRaffles';
+import { WinnerRaffles } from '../Table/WinnerRaffles';
+import { ClosedRaffles } from '../Table/ClosedRaffles';
+import { useStore } from '../../hooks/useStore';
 
 /* Used for Local testing with Fixtures */
 // import winnerData from '../../fixtures/winners.json';
@@ -14,6 +15,8 @@ export const Overview = (): ReactElement => {
   const { data: winnerData } = useWinnerRaffles();
   const { data: raffleData } = useRafflesStats();
   const [currentEpoch, setCurrentEpoch] = useState<number>(274);
+  const { setEpoch } = useStore();
+
   const [jackpot, setJackpot] = useState<string>('');
 
   useEffect(() => {
@@ -21,7 +24,10 @@ export const Overview = (): ReactElement => {
   }, [raffleData]);
 
   useEffect(() => {
-    if (data) setCurrentEpoch(data[0].epoch);
+    if (data) {
+      setCurrentEpoch(data[0].epoch);
+      setEpoch(data[0].epoch);
+    }
   }, [data]);
 
   return (

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
-import { IWinners } from '../../interfaces/Board';
+import { IWinners, IFetchedData } from '../../interfaces';
 import { IRaffleDetails } from '../interfaces';
 
-const fetchRaffles = async (limit = <number>10): Promise<IWinners[] | boolean | string> => {
+const fetchRaffles = async (limit = <number>10): Promise<IFetchedData[]> => {
   const res = await fetch('https://lottery.easystaking.online/raffles');
   const result = res.json();
   return result;
@@ -29,11 +29,20 @@ const fetchWinnerRaffles = async (): Promise<IWinners[]> => {
   return result;
 };
 
+const fetchUserRaffles = async (addr): Promise<any[]> => {
+  const res = await fetch(`https://lottery.easystaking.online/raffles/${addr}?status=joined`);
+  const result = res.json();
+  return result;
+};
+
 const useRaffles = (limit?: number) => useQuery(['raffles', limit], () => fetchRaffles(limit));
 
 const useRafflesStats = () => useQuery(['raffles_stats'], () => fetchRafflesStats());
 
 const useWinnerRaffles = () => useQuery(['raffles_winners'], () => fetchWinnerRaffles());
+
+const useUserRaffles = (addr?: string) =>
+  useQuery(['raffles_user', addr], () => fetchUserRaffles(addr));
 
 export {
   useRaffles,
@@ -42,4 +51,5 @@ export {
   fetchRafflesStats,
   useWinnerRaffles,
   joinRaffles,
+  useUserRaffles,
 };

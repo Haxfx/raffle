@@ -1,20 +1,26 @@
 /* eslint-disable camelcase */
-import { ReactElement, useMemo, useState, useRef } from 'react';
+import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
 import { useTable } from 'react-table';
 import { VscChevronUp } from 'react-icons/vsc';
 
-import { RAFFLES } from '../../constants/context';
-import tableColumns from '../../fixtures/tablecolumns.json';
+import { MYTICKETS } from '../../constants/context';
+import myRaffleColumns from '../../fixtures/myrafflecolumns.json';
+import { truncate } from '../../util/Truncate';
+import { IMyRaffles } from '../../interfaces/Board';
 
-export const ClosedRaffles = ({ fetchedData }): ReactElement => {
-  const filteredData = fetchedData.filter((item) => item.is_closed === true);
-  const data = useMemo(() => filteredData, []);
-  const columns = useMemo(() => tableColumns, []);
+interface IMyRafflesProps {
+  fetchedData: IMyRaffles[];
+}
+
+export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
+  const data = useMemo(() => fetchedData, []);
+  const columns = useMemo(() => myRaffleColumns, []);
   const tableInstance = useTable({ columns, data });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState('0px');
   const [transform, setTransform] = useState('transform duration-700 ease text-blue-primary');
+  console.log(fetchedData);
 
   const contentSpace = useRef(null);
 
@@ -28,6 +34,14 @@ export const ClosedRaffles = ({ fetchedData }): ReactElement => {
     );
   }
 
+  function setTxLink(tx) {
+    return `https://cardanoscan.io/transaction/${tx}`;
+  }
+
+  useEffect(() => {
+    toggleAccordion();
+  }, []);
+
   return (
     <div className="grid grid-cols-1">
       <div>
@@ -36,7 +50,7 @@ export const ClosedRaffles = ({ fetchedData }): ReactElement => {
           className="w-full flex justify-between box-border appearance-none cursor-pointer focus:outline-none flex items-center justify-between"
           onClick={toggleAccordion}
         >
-          <span className="p-5">{RAFFLES.CLOSED_TITLE}</span>
+          <span className="p-5">{MYTICKETS.TITLE}</span>
           <VscChevronUp className={`${transform} inline-block h-6 w-6 mr-5`} />
         </button>
         <div
@@ -86,10 +100,30 @@ export const ClosedRaffles = ({ fetchedData }): ReactElement => {
                           row.cells.map((cell) => (
                             // Apply the cell props
                             <td {...cell.getCellProps()} className="text-center p-3">
-                              {
+                              {(cell.column.id === 'tx_id' && (
+                                <a
+                                  href={setTxLink(cell.value)}
+                                  target="_blank"
+                                  className="text-blue-primary"
+                                  rel="noreferrer"
+                                >
+                                  {truncate(cell.value, 5)}
+                                </a>
+                              )) ||
+                                (cell.column.id === 'won' &&
+                                  (cell.value === true ? (
+                                    <span className="text-green-400">Win</span>
+                                  ) : (
+                                    <span className="text-orange-primary">-</span>
+                                  ))) ||
+                                (cell.column.id === 'is_closed' &&
+                                  (cell.value === true ? (
+                                    <span className="text-green-400">V</span>
+                                  ) : (
+                                    <span className="text-orange-primary">X</span>
+                                  ))) ||
                                 // Render the cell contents
-                                cell.render('Cell')
-                              }
+                                cell.render('Cell')}
                             </td>
                           ))
                         }
