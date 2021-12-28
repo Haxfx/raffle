@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
-import { ReactElement, useMemo, FC } from "react";
-import { useTable } from "react-table";
+import { ReactElement, useMemo, FC } from 'react';
+import { useTable } from 'react-table';
 
-import { RAFFLES } from "../../constants/context";
-import tableColumns from "../../fixtures/tablecolumns.json";
+import { RAFFLES } from '../../constants/context';
+import tableColumns from '../../fixtures/tablecolumns.json';
 
 interface IRaffles {
   epoch: string;
@@ -21,13 +21,7 @@ export const OpenRaffles = ({ fetchedData }: any): ReactElement => {
 
   const tableInstance = useTable({ columns, data });
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   return (
     <div className="grid grid-cols-1">
@@ -49,7 +43,7 @@ export const OpenRaffles = ({ fetchedData }: any): ReactElement => {
                     >
                       {
                         // Render the header
-                        column.render("Header")
+                        column.render('Header')
                       }
                     </th>
                   ))
@@ -67,21 +61,18 @@ export const OpenRaffles = ({ fetchedData }: any): ReactElement => {
               prepareRow(row);
               return (
                 // Apply the row props
-                <tr
-                  {...row.getRowProps()}
-                  className="border-b-2 border-purple-dark"
-                >
+                <tr {...row.getRowProps()} className="border-b-2 border-purple-dark">
                   {
                     // Loop over the rows cells
                     row.cells.map((cell) => (
                       // Apply the cell props
                       <td {...cell.getCellProps()} className="text-center p-3">
-                        {(cell.column.id === "prize" &&
+                        {(cell.column.id === 'prize' &&
                           (cell?.row?.original?.asset_name
                             ? `${cell.value} ${cell.row.original.asset_name}`
                             : `${cell.value} ADA`)) ||
                           // Render the cell contents
-                          cell.render("Cell")}
+                          cell.render('Cell')}
                       </td>
                     ))
                   }

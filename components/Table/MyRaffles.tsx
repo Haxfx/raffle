@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
-import { ReactElement, useMemo, useState, useRef, useEffect } from "react";
-import { useTable } from "react-table";
-import { VscChevronUp } from "react-icons/vsc";
+import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
+import { useTable } from 'react-table';
+import { VscChevronUp } from 'react-icons/vsc';
 
-import { MYTICKETS } from "../../constants/context";
-import myRaffleColumns from "../../fixtures/myrafflecolumns.json";
-import { truncate, truncateMiddle } from "../../util/Truncate";
-import { IMyRaffles } from "../../interfaces/Board";
-import { useStore } from "../../hooks/useStore";
+import { MYTICKETS } from '../../constants/context';
+import myRaffleColumns from '../../fixtures/myrafflecolumns.json';
+import { truncate, truncateMiddle } from '../../util/Truncate';
+import { IMyRaffles } from '../../interfaces/Board';
+import { useStore } from '../../hooks/useStore';
 
 interface IMyRafflesProps {
   fetchedData: IMyRaffles[];
@@ -17,29 +17,21 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
   const data = useMemo(() => fetchedData, []);
   const columns = useMemo(() => myRaffleColumns, []);
   const tableInstance = useTable({ columns, data });
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   const [active, setActive] = useState(false);
-  const [height, setHeight] = useState("0px");
-  const [transform, setTransform] = useState(
-    "transform duration-700 ease text-blue-primary"
-  );
+  const [height, setHeight] = useState('0px');
+  const [transform, setTransform] = useState('transform duration-700 ease text-blue-primary');
   const { store } = useStore();
 
   const contentSpace = useRef(null);
 
   function toggleAccordion() {
     setActive(active === false);
-    setHeight(active ? "0px" : `${contentSpace.current.scrollHeight}px`);
+    setHeight(active ? '0px' : `${contentSpace.current.scrollHeight}px`);
     setTransform(
       active
-        ? "transform duration-700 ease text-blue-primary"
-        : "transform duration-700 ease rotate-180 text-orange-primary"
+        ? 'transform duration-700 ease text-blue-primary'
+        : 'transform duration-700 ease rotate-180 text-orange-primary'
     );
   }
 
@@ -89,7 +81,7 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
                           >
                             {
                               // Render the header
-                              column.render("Header")
+                              column.render('Header')
                             }
                           </th>
                         ))
@@ -107,19 +99,13 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
                     prepareRow(row);
                     return (
                       // Apply the row props
-                      <tr
-                        {...row.getRowProps()}
-                        className="border-b-2 border-purple-dark"
-                      >
+                      <tr {...row.getRowProps()} className="border-b-2 border-purple-dark">
                         {
                           // Loop over the rows cells
                           row.cells.map((cell) => (
                             // Apply the cell props
-                            <td
-                              {...cell.getCellProps()}
-                              className="text-center p-3"
-                            >
-                              {(cell.column.id === "tx_id" && (
+                            <td {...cell.getCellProps()} className="text-center p-3">
+                              {(cell.column.id === 'tx_id' && (
                                 <a
                                   href={setTxLink(cell.value)}
                                   target="_blank"
@@ -129,24 +115,20 @@ export const MyRaffles = ({ fetchedData }: IMyRafflesProps): ReactElement => {
                                   {truncate(cell.value, 5)}
                                 </a>
                               )) ||
-                                (cell.column.id === "won" &&
+                                (cell.column.id === 'won' &&
                                   (cell.value === true ? (
                                     <span className="text-green-400">Win</span>
                                   ) : (
-                                    <span className="text-orange-primary">
-                                      -
-                                    </span>
+                                    <span className="text-orange-primary">-</span>
                                   ))) ||
-                                (cell.column.id === "is_closed" &&
+                                (cell.column.id === 'is_closed' &&
                                   (cell.value === true ? (
                                     <span className="text-green-400">V</span>
                                   ) : (
-                                    <span className="text-orange-primary">
-                                      X
-                                    </span>
+                                    <span className="text-orange-primary">X</span>
                                   ))) ||
                                 // Render the cell contents
-                                cell.render("Cell")}
+                                cell.render('Cell')}
                             </td>
                           ))
                         }
