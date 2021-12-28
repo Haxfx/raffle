@@ -1,35 +1,45 @@
 /* eslint-disable camelcase */
-import { ReactElement, useMemo, useState, useRef, useEffect } from 'react';
-import { useTable } from 'react-table';
-import { VscChevronUp } from 'react-icons/vsc';
+import { ReactElement, useMemo, useState, useRef, useEffect } from "react";
+import { useTable } from "react-table";
+import { VscChevronUp } from "react-icons/vsc";
 
-import { RAFFLES } from '../../constants/context';
-import winnersColumns from '../../fixtures/winnerscolums.json';
-import { truncate } from '../../util/Truncate';
-import { IWinners } from '../../interfaces/Board';
+import { RAFFLES } from "../../constants/context";
+import winnersColumns from "../../fixtures/winnerscolums.json";
+import { truncate } from "../../util/Truncate";
+import { IWinners } from "../../interfaces/Board";
 
 interface IWinnersRaffles {
   fetchedData: IWinners[];
 }
 
-export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement => {
+export const WinnerRaffles = ({
+  fetchedData,
+}: IWinnersRaffles): ReactElement => {
   const data = useMemo(() => fetchedData, []);
   const columns = useMemo(() => winnersColumns, []);
   const tableInstance = useTable({ columns, data });
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = tableInstance;
   const [active, setActive] = useState(false);
-  const [height, setHeight] = useState('0px');
-  const [transform, setTransform] = useState('transform duration-700 ease text-blue-primary');
+  const [height, setHeight] = useState("0px");
+  const [transform, setTransform] = useState(
+    "transform duration-700 ease text-blue-primary"
+  );
 
   const contentSpace = useRef(null);
 
   function toggleAccordion() {
     setActive(active === false);
-    setHeight(active ? '0px' : `${contentSpace.current.scrollHeight}px`);
+    setHeight(active ? "0px" : `${contentSpace.current.scrollHeight}px`);
     setTransform(
       active
-        ? 'transform duration-700 ease text-blue-primary'
-        : 'transform duration-700 ease rotate-180 text-orange-primary'
+        ? "transform duration-700 ease text-blue-primary"
+        : "transform duration-700 ease rotate-180 text-orange-primary"
     );
   }
 
@@ -75,7 +85,7 @@ export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement =>
                           >
                             {
                               // Render the header
-                              column.render('Header')
+                              column.render("Header")
                             }
                           </th>
                         ))
@@ -93,13 +103,19 @@ export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement =>
                     prepareRow(row);
                     return (
                       // Apply the row props
-                      <tr {...row.getRowProps()} className="border-b-2 border-purple-dark">
+                      <tr
+                        {...row.getRowProps()}
+                        className="border-b-2 border-purple-dark"
+                      >
                         {
                           // Loop over the rows cells
                           row.cells.map((cell) => (
                             // Apply the cell props
-                            <td {...cell.getCellProps()} className="text-center p-3">
-                              {(cell.column.id === 'tx_id' && (
+                            <td
+                              {...cell.getCellProps()}
+                              className="text-center p-3"
+                            >
+                              {(cell.column.id === "tx_id" && (
                                 <a
                                   href={setTxLink(cell.value)}
                                   target="_blank"
@@ -109,10 +125,16 @@ export const WinnerRaffles = ({ fetchedData }: IWinnersRaffles): ReactElement =>
                                   {truncate(cell.value, 5)}
                                 </a>
                               )) ||
-                                (cell.column.id === 'user_friendly_name' &&
+                                (cell.column.id === "user_friendly_name" &&
                                   truncate(cell.value, 5)) ||
+                                (cell.column.id === "winning_amount" &&
+                                  `${cell.value} ${
+                                    cell?.row?.original?.asset_name
+                                      ? cell.row.original.asset_name
+                                      : "ADA"
+                                  }`) ||
                                 // Render the cell contents
-                                cell.render('Cell')}
+                                cell.render("Cell")}
                             </td>
                           ))
                         }
